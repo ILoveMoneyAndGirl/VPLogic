@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const setting = require('../config/setting');
 var url='mongodb://' + setting.dbUserName + ':' + setting.dbPassword + '@' + setting.dbIp + ':' + setting.dbPort + '/' + setting.dbName + ''
-mongoose.connect(url, { useMongoClient: true });
+mongoose.connect(url);
 mongoose.Promise = global.Promise;
 const db = mongoose.connection;
 
