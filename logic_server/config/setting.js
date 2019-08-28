@@ -7,7 +7,7 @@ module.exports = {
   socketIp:"127.0.0.1",
   socketPort:9999,
 
-  dbIp:"212.71.234.60",
+  dbIp:"127.0.0.1",
   dbPort:"27017",
   dbName:"WebBackUserDB",
   dbPassword:"WebBackUserDB_Root.c.c",
