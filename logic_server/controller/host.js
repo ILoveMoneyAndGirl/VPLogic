@@ -16,7 +16,7 @@ class Host {
     }
 
 
-   	async getHost()
+   	async GetHost()
    	  {
    	  	let hostList=await HostModel.find({enable:true})
    	  	let list=[]
@@ -36,6 +36,20 @@ class Host {
    	  	return list
    	  
    	  }
+
+
+    async AddHost(){
+
+    }
+
+    async UpdateHost(){
+
+    }
+
+    async deleteHost(){
+
+    }
+
 
 }
 

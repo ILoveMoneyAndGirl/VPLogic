@@ -25,7 +25,7 @@ class Goods {
 
     async UpdateGoods(msg,next)
     {
-        const data = await GoodsModel.findOneAndUpdate({id:msg.id}{$set:msg.set})
+        const data = await GoodsModel.findOneAndUpdate({id:msg.id},{$set:msg.set})
         next(data)
 
     }
