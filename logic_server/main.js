@@ -23,7 +23,7 @@ try{
             dataBuffer = decodeURI(dataBuffer)
             let msg = querystring.parse(dataBuffer);
             logic.PayBack(msg,function(data){
-                res.end(data)
+                res.end(JSON.stringify(data))
             })
         });
       }else if(request.url === '/setting' && request.method === 'POST') {// 系统设置
@@ -38,7 +38,7 @@ try{
             dataBuffer = decodeURI(dataBuffer)
             let msg = querystring.parse(dataBuffer);
             logic.Setting(msg,function(data){
-                res.end(data)
+                res.end(JSON.stringify(data))
             })
         });
 
