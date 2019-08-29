@@ -23,7 +23,10 @@ try{
             dataBuffer = decodeURI(dataBuffer)
             let msg = querystring.parse(dataBuffer);
             logic.PayBack(msg,function(data){
-                res.end(JSON.stringify(data))
+                let msg=JSON.stringify(data)
+                console.log("PAYBACK:")
+                console.log(msg)
+                res.end(msg)
             })
         });
       }else if(request.url === '/setting' && request.method === 'POST') {// 系统设置
@@ -38,7 +41,10 @@ try{
             dataBuffer = decodeURI(dataBuffer)
             let msg = querystring.parse(dataBuffer);
             logic.Setting(msg,function(data){
-                res.end(JSON.stringify(data))
+              let msg=JSON.stringify(data)
+              console.log("SETTING:")
+              console.log(msg)
+                res.end(msg)
             })
         });
 
