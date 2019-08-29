@@ -35,6 +35,10 @@ try{
         request.on('data', function (chunk) {
             // chunk 默认是一个二进制数据，和 data 拼接会自动 toString
             dataBuffer += chunk;
+                            console.log("dataBuffer")
+
+                console.log(dataBuffer)
+
         });
 
         request.on('end', async function () {
