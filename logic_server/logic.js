@@ -302,6 +302,8 @@ event.on('addUserTime',User.addTime);
 
 
 exports.Setting=function (msg,next){
+	console.log("ACTION:",msg.action)
+	console.log(msg)
 	event.emit(msg.action,msg,next)
 }
 
