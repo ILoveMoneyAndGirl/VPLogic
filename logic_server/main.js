@@ -19,7 +19,7 @@ try{
             // chunk 默认是一个二进制数据，和 data 拼接会自动 toString
             dataBuffer += chunk;
         });
-        request.on('end', async function () {
+        request.on('end',  function () {
             dataBuffer = decodeURI(dataBuffer)
             let msg = JSON.parse(dataBuffer);
             logic.PayBack(msg,function(data){
@@ -41,7 +41,7 @@ try{
 
         });
 
-        request.on('end', async function () {
+        request.on('end',  function () {
                       console.log(dataBuffer)
 
             dataBuffer = decodeURI(dataBuffer)
