@@ -26,7 +26,7 @@ try{
                 let msgs=JSON.stringify(data)
                 console.log("PAYBACK:")
                 console.log(msgs)
-                res.end(msgs)
+                response.end(msgs)
             })
         });
       }else if(request.url === '/setting' && request.method === 'POST') {// 系统设置
@@ -49,7 +49,7 @@ try{
               let msgs=JSON.stringify(data)
               console.log("SETTING:")
               console.log(msgs)
-                res.end(msgs)
+                response.end(msgs)
             })
         });
 
