@@ -109,7 +109,7 @@ event.on('checkLogin',User.checkLogin);
 event.on('addTime',User.addTime); 
 event.on('userInfo',User.userInfo); 
 event.on('getInfo',function(msg,data,next){
-   var host=["127.0.0.1:8888","127.0.0.1:9999"]
+   var host=["212.71.234.60:8888","212.71.234.60:9999"]
    next(host)
 }); 
 

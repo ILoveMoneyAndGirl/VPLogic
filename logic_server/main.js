@@ -35,17 +35,11 @@ try{
         request.on('data', function (chunk) {
             // chunk 默认是一个二进制数据，和 data 拼接会自动 toString
             dataBuffer += chunk;
-                            console.log("dataBuffer")
-
-                console.log(dataBuffer)
-
         });
 
         request.on('end',  function () {
-                      console.log(dataBuffer)
 
             dataBuffer = decodeURI(dataBuffer)
-            console.log(dataBuffer)
           //  let msg = querystring.parse(dataBuffer);
           let msg = JSON.parse(dataBuffer);
              console.log(dataBuffer)
@@ -53,7 +47,7 @@ try{
               let msgs=JSON.stringify(data)
               console.log("SETTING:")
               console.log(msgs)
-                response.end(msgs)
+              response.end(msgs)
             })
         });
 
