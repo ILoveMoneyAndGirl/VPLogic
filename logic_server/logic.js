@@ -1,7 +1,7 @@
 //返回值 逻辑处理
 
 var config = require('./config/config');
-var settings = require('./config/settings');
+var settings = require('./config/setting');
 
 var common=require('./common.js')
 var crypto = require('crypto');
