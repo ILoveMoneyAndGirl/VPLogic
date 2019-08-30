@@ -67,7 +67,9 @@ function PostData (data,host,port,path,protocol,callBack){
 		if(res.statusCode==200){
 			res.setEncoding('utf8');
 			res.on('data', function (chunk) {
-		   		callBack(null,chunk)
+				console.log("RECV:")
+				console.log(chunk)
+		   		callBack(null,JSON.parse(chunk)
 		    });
 		}else{
 			callBack(res.statusCode)
