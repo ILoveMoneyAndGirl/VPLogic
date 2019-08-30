@@ -207,8 +207,14 @@ event.on('loadQRcode',async function(msg,data,next){
 	  		notifyUrl:config.payUrl,
 	  	}
 	  	sendData.key=getRequestKey(sendData,config.payToken)
-	  	payOrder(sendData,function(qr)
+	  	payOrder(sendData,function(err,qr)
 	  	{	
+	  		if(err)
+	  		{
+	  			next(data)
+	  			return 
+	  		}
+
 			data.data["qrcode"]=qr.qrCode
 			data.data["realPrice"]=qr.realPrice
 			data.data["orderId"]=qr.id
