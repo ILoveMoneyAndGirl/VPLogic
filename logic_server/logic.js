@@ -1,6 +1,8 @@
 //返回值 逻辑处理
 
 var config = require('./config/config');
+var settings = require('./config/settings');
+
 var common=require('./common.js')
 var crypto = require('crypto');
 
@@ -13,6 +15,7 @@ var responseData={"callback":"","data":"","disptch":true,"msg":"","status":500};
 var RD_data={"comment":null,"comments":[],"cookie":"","homePage":config.homePage,"invationCode":"","invationLink":config.invationLink,"key":"","msg":"","notices":[],"praiceLink":config.praiceLink,"prxList":[],"serialId":"","tabId":"","url":"","urlList":null,"userEmail":"","versionStatus":0};
 
 
+const notifyUrl="http://"+settings.webIp+":"+settings.webPort+"/payback"
 // function pingServer
 // function register 
 // function checkRegister
@@ -204,7 +207,7 @@ event.on('loadQRcode',async function(msg,data,next){
 	  		price:g.price,
 	  		goodsName:g.id,
 	  		channel:msg.channel,
-	  		notifyUrl:config.payUrl,
+	  		notifyUrl:notifyUrl,
 	  	}
 	  	sendData.key=getRequestKey(sendData,config.payToken)
 	  	payOrder(sendData,function(err,qr)
@@ -212,16 +215,17 @@ event.on('loadQRcode',async function(msg,data,next){
 	  		if(err)
 	  		{
 	  			next(data)
-	  			return 
+	  		}else{
+	  			data.data["qrcode"]=qr.qrCode
+				data.data["realPrice"]=qr.realPrice
+				data.data["orderId"]=qr.id
+				data.data["isAny"]=qr.isAny
+				data.data["price"]=qr.price
+				data.status=200;
+				next(data)
 	  		}
 
-			data.data["qrcode"]=qr.qrCode
-			data.data["realPrice"]=qr.realPrice
-			data.data["orderId"]=qr.id
-			data.data["isAny"]=qr.isAny
-			data.data["price"]=qr.price
-			data.status=200;
-			next(data)
+
 	  	})
 	  }else
 	  {
