@@ -69,7 +69,7 @@ function PostData (data,host,port,path,protocol,callBack){
 			res.on('data', function (chunk) {
 				console.log("RECV:")
 				console.log(chunk)
-		   		callBack(null,JSON.parse(chunk)
+		   		callBack(null,JSON.parse(chunk))
 		    });
 		}else{
 			callBack(res.statusCode)
