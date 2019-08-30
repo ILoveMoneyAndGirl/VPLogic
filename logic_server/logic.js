@@ -48,7 +48,7 @@ function payOrder(data,callBack)
 }
 function PostData (data,host,port,path,protocol,callBack){
 
-  var content = querystring.stringify(data);
+  var content =JSON.stringify(data);
 
   var options = {
     hostname: host,
@@ -56,8 +56,8 @@ function PostData (data,host,port,path,protocol,callBack){
     path: path,
     method: 'POST',
     headers: {
-       'Content-Type': 'application/x-www-form-urlencoded',
-       'Content-Length': content.length
+       'Content-Type': 'application/json;charset=utf8',
+    
      }
   };
 	var req = protocol.request(options, function (res) {

@@ -41,14 +41,13 @@ class Goods {
 
   async getGoodsAll(msg,data,next)
   {
-        console.log("getGoodsAll msg:",msg)
 
         let goods = await GoodsModel.find().sort({
                 price: -1
           })
 
         data.data["goods"]=goods
-                console.log("getGoodsAll data:",data)
+                console.log("getGoodsAll goods:",goods)
         data.status=200;
         next(data)
       
