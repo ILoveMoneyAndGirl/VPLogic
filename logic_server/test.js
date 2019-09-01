@@ -58,24 +58,32 @@
 
 
 
-let temp={
-	temp:{
-		a1:1,
-		b1:2,
-		b3:3,
-		b4:4,
-		b5:{
-			vv:"1"
-		}
-	},
+// let temp={
+// 	temp:{
+// 		a1:1,
+// 		b1:2,
+// 		b3:3,
+// 		b4:4,
+// 		b5:{
+// 			vv:"1"
+// 		}
+// 	},
 
-	cc:77
-}
+// 	cc:77
+// 	88:"00000"
+// }
 
+let temp={}
+let key=999.02
+let v=999.010
+temp[key]="xxxxxx"
+if(temp[v])
+	console.log(temp[key])
+console.log(key.toFixed(3))
 
-console.log(temp)
-delete temp["temp"]["b5"]
-console.log(temp)
+// console.log(temp)
+// delete temp["temp"]["b5"]
+// console.log(temp)
 
 
 

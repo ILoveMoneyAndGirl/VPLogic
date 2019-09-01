@@ -13,7 +13,7 @@ try{
   http.createServer(function (request, response) {
 
       if (request.url === '/payback' && request.method === 'POST') {//下单
-        
+        console.log("payback-------------->")
         let dataBuffer = '';
         request.on('data', function (chunk) {
             // chunk 默认是一个二进制数据，和 data 拼接会自动 toString
