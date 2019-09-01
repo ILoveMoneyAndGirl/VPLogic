@@ -337,7 +337,7 @@ exports.PayBack=function (msg,next)
  //    channel,
 //     key,
 // }
-
+	next({code:0})
 
 }
 

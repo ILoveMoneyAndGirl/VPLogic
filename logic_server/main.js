@@ -22,6 +22,8 @@ try{
         request.on('end',  function () {
             dataBuffer = decodeURI(dataBuffer)
             let msg = JSON.parse(dataBuffer);
+            console.log(msg)
+            
             logic.PayBack(msg,function(data){
                 let msgs=JSON.stringify(data)
                 console.log("PAYBACK:")
