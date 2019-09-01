@@ -225,6 +225,7 @@ event.on('loadQRcode',async function(msg,data,next){
 				data.data["price"]=qr.price
 				data.data["error"]=qr.error
 				data.data["msg"]=qr.msg
+				data.data["timeOut"]=qr.timeOut
 
 				data.status=200;
 				next(data)
