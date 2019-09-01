@@ -19,3 +19,82 @@
  
 //  console.log(index)
 //    console.log(index.length)
+
+// a=0.01
+// b=0.02
+// c=0.011
+// d="0.01"
+// f="0.010"
+// if(a==b)
+// {
+// 	console.log("===")
+// }
+// else{
+// 	console.log("!==")
+// }
+
+// if(c==a)
+// {
+// 	console.log("===")
+// }
+// else{
+// 	console.log("!==")
+// }
+
+// if(a==d)
+// {
+// 	console.log("===")
+// }
+// else{
+// 	console.log("!==")
+// }
+// if(a==f)
+// {
+// 	console.log("===")
+// }
+// else{
+// 	console.log("!==")
+// }
+
+
+
+let temp={
+	temp:{
+		a1:1,
+		b1:2,
+		b3:3,
+		b4:4,
+		b5:{
+			vv:"1"
+		}
+	},
+
+	cc:77
+}
+
+
+console.log(temp)
+delete temp["temp"]["b5"]
+console.log(temp)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
