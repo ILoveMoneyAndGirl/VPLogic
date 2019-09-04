@@ -25,8 +25,9 @@ class Host {
 
    	  	for (var i = 0; i < count; i++) {
    	  		let t={}
-   	  		let host=hostList[Common.GetRandomNum(0,hostList.length-1)]
-
+          let index=Common.GetRandomNum(0,hostList.length-1)
+   	  		let host=hostList[index]
+          hostList.splice(index,1)
    	  		t["address"]=host.name
    	  		t["id"]=host.id
    	  		t["info"]=host.head+' '+host.host+":"+host.port
