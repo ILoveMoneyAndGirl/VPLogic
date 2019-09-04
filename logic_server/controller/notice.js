@@ -1,5 +1,5 @@
 
-const URLListModel = require("../models").URLList
+const NoticesModel = require("../models").Notices
 
 class Notice {
 
@@ -9,7 +9,7 @@ class Notice {
 
     async  getOneNotice(name){
 
-   		return await URLListModel.findOne({enable:true})
+   		return await NoticesModel.findOne({enable:true})
      }
 }
 

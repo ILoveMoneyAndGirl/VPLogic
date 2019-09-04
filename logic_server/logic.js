@@ -157,10 +157,11 @@ event.on('loadPxyList',async function(msg,data,next){
 	let now= new Date()
 	if(user){
 		if(user.deadLine<now)
-		data.data.notices[0]={title:Tip.TimeOut,content:Tip.TimeOutTip}
+			data.data.notices[0]={title:Tip.TimeOut,content:Tip.TimeOutTip}
 		else{
 		
 			let list= await Host.GetHost()
+			console.log(list)
 			data.data.prxList=list
 			data.data.notices[0]=await Notice.getOneNotice()
 		}
