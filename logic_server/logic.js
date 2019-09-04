@@ -138,9 +138,10 @@ event.on('fetchPac',async function(msg,data,next){
 		else{
 			
 			let list= await Host.GetHost()
-			let url=await URLList.getURLByUser(msg.lastUser)
+			let url=await URLList.getURLByUser(user.userName)
 			data.data.prxList=list
 			data.data.urlList=url
+			data.data.lastUser=user.userName
 			data.data.notices[0]=await Notice.getOneNotice()
 		}
 		data.status=200;
@@ -163,6 +164,7 @@ event.on('loadPxyList',async function(msg,data,next){
 			let list= await Host.GetHost()
 			console.log(list)
 			data.data.prxList=list
+			data.data.lastUser=user.userName
 			data.data.notices[0]=await Notice.getOneNotice()
 		}
 	 data.status=200;
