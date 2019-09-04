@@ -137,7 +137,7 @@ event.on('fetchPac',async function(msg,data,next){
 			data.data.notices[0]={title:Tip.TimeOut,content:Tip.TimeOutTip}
 		else{
 			
-			let list= await Host.getHost()
+			let list= await Host.GetHost()
 			let url=await URLList.getURLByUser(msg.lastUser)
 			data.data.prxList=list
 			data.data.urlList=url
@@ -306,7 +306,7 @@ event.on('AddGoods',Goods.AddGoods);
 event.on('UpdateGoods',Goods.UpdateGoods); 
 event.on('deleteGoods',Goods.deleteGoods); 
 
-event.on('GetHost',Host.GetHost); 
+event.on('GetHost',Host.getHostList); 
 event.on('AddHost',Host.AddHost); 
 event.on('UpdateHost',Host.UpdateHost); 
 event.on('deleteHost',Host.deleteHost); 
