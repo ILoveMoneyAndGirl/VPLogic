@@ -50,6 +50,8 @@ class Host {
 
     async AddHost(msg,next)
     {
+        console.log("AddHost--->")
+        console.log(msg.newData)
          const newObj = new HostModel(msg.newData);
          const data = await newObj.save();
          next(data)
