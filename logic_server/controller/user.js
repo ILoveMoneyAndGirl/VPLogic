@@ -259,7 +259,7 @@ class User {
         next(data)
     }
 
-    addTime(msg,next) 
+   async addTime(msg,next) 
     {
         const u=await UserModel.findOne({userName:msg.userName});
         const g=await GoodsModel.findOne({id:msg.goodsId});
@@ -272,7 +272,7 @@ class User {
         next({price:g.price})
     }
 
-    userInfo(msg,data,next) 
+    async userInfo(msg,data,next) 
     {
 
     }
