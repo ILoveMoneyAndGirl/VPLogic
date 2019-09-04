@@ -38,16 +38,36 @@ class Host {
    	  }
 
 
-    async AddHost(){
+    async getHostList(msg,next)
+    {
+        let sendData={}
+        sendData.data = await HostModel.find(msg.queryObj).sort({
+            status: -1
+        }).skip(Number(msg.pageSize) * (Number(msg.current) - 1)).limit(Number(msg.pageSize));
+        sendData.totalItems = await HostModel.count(msg.queryObj);
+        next(sendData)
+    }
+
+    async AddHost(msg,next)
+    {
+         const newObj = new HostModel(msg.newData);
+         const data = await newObj.save();
+         next(data)
+    }
+
+    async UpdateHost(msg,next)
+    {
+        const data = await HostModel.findOneAndUpdate({id:msg.id},{$set:msg.set})
+        next(data)
 
     }
 
-    async UpdateHost(){
-
-    }
-
-    async deleteHost(){
-
+    async deleteHost(msg,next)
+    {
+        const data=  await HostModel.remove({
+                id: msg.id
+            });
+        next(data)
     }
 
 

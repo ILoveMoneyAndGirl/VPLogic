@@ -1,4 +1,6 @@
 const UserModel = require("../models").User;
+const GoodsModel = require("../models").Goods
+
 const Common=require('../common.js')
 
 const Tip =  require("../config/tip");
@@ -259,7 +261,15 @@ class User {
 
     addTime(msg,next) 
     {
+        const u=await UserModel.findOne({userName:msg.userName});
+        const g=await GoodsModel.findOne({id:msg.goodsId});
+        let newDeadLine=new Date()
+        if((u.deadLine- newDeadLine)>0)
+            newDeadLine=u.deadLine
+        newDeadLine.setDate(newDeadLine.getDate()+g.days);
+        await UserModel.findOneAndUpdate({userName:msg.userName},{$set:{deadLine:newDeadLine}})
 
+        next({price:g.price})
     }
 
     userInfo(msg,data,next) 

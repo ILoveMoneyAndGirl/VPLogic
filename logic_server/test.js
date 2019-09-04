@@ -73,17 +73,19 @@
 // 	88:"00000"
 // }
 
-let temp={}
-let key=999.02
-let v=999.010
-temp[key]="xxxxxx"
-if(temp[v])
-	console.log(temp[key])
-console.log(key.toFixed(3))
+// let temp={}
+// let key=999.02
+// let v=999.010
+// temp[key]="xxxxxx"
+// if(temp[v])
+// 	console.log(temp[key])
+// console.log(key.toFixed(3))
 
 // console.log(temp)
 // delete temp["temp"]["b5"]
 // console.log(temp)
+
+console.log(Math.abs(-222))
 
 
 

@@ -323,7 +323,7 @@ exports.Setting=function (msg,next){
 	event.emit(msg.action,msg,next)
 }
 
-exports.PayBack=function (msg,next)
+exports.PayBack=async function (msg,next)
 {	
 
 	// var notifyMsg={
@@ -337,6 +337,18 @@ exports.PayBack=function (msg,next)
  //    channel,
 //     key,
 // }
+	if(msg.income>0)
+	{
+		const u=await userModel.findOne({id:msg.uId});
+	  	const g=await goodsModel.findOne({id:msg.goodsName});
+	  	let newDeadLine=new Date()
+	  	if((u.deadLine- newDeadLine)>0)
+	  		newDeadLine=u.deadLine
+	  	newDeadLine.setDate(newDeadLine.getDate()+g.days);
+	  	await userModel.findOneAndUpdate({id:msg.uId},{$set:{deadLine:newDeadLine}})
+	}
+
+
 	next({code:0})
 
 }
