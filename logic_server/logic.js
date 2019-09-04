@@ -153,7 +153,7 @@ event.on('fetchPac',async function(msg,data,next){
 
 event.on('loadPxyList',async function(msg,data,next){
 
-	let user=await User.getUserByName(msg.cookie)
+	let user=await User.getUserByCookie(msg.cookie)
 	let now= new Date()
 	if(user){
 		if(user.deadLine<now)
