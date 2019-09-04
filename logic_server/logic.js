@@ -160,7 +160,7 @@ event.on('loadPxyList',async function(msg,data,next){
 		data.data.notices[0]={title:Tip.TimeOut,content:Tip.TimeOutTip}
 		else{
 		
-			let list= await Host.getHost()
+			let list= await Host.GetHost()
 			data.data.prxList=list
 			data.data.notices[0]=await Notice.getOneNotice()
 		}
