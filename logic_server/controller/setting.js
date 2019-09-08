@@ -9,14 +9,12 @@ class Setting {
 
 
     set(msg,next){
-        config=msg.config
+        config=JSON.parse(msg.config)
         next(config)
     }
 
 
    	 get(msg,next){
-    console.log(config)
-
       next(config)
     }
 
