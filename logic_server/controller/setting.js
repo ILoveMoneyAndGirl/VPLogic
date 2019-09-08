@@ -8,18 +8,14 @@ class Setting {
     }
 
 
-    set(msg,data,next){
-       config=msg.config
-        data.data=""
-        data.status=200
-        next(data)
+    set(msg,next){
+        config=msg.config
+        next(config)
     }
 
 
-   	 get(msg,data,next){
-        data.data=config
-        data.status=200
-        next(data)
+   	 get(msg,next){
+      next(config)
     }
 
 }

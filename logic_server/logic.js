@@ -254,6 +254,7 @@ event.on('addURL',URLList.addURL);
 event.on('addURLs',URLList.addURLs); 
 event.on('updateURL',URLList.updateURL); 
 
+
 // event.on('loadNotice',Notice.loadNotice(data,response)); 
 
 //--------------WebSocket-----------------
@@ -318,6 +319,12 @@ event.on('deleteHost',Host.deleteHost);
 event.on('getSysArg',Setting.get); 
 event.on('setSysArg',Setting.set); 
 event.on('addUserTime',User.addTime); 
+// event.on('config',function(msg,next){
+// 	config=msg.config
+// 	next({code:0})
+// }); 
+
+
 
 
 exports.Setting=function (msg,next){
