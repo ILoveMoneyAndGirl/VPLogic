@@ -44,7 +44,6 @@ try{
             dataBuffer = decodeURI(dataBuffer)
           //  let msg = querystring.parse(dataBuffer);
           let msg = JSON.parse(dataBuffer);
-             console.log(dataBuffer)
             logic.Setting(msg,function(data){
               let msgs=JSON.stringify(data)
               console.log("SETTING:")

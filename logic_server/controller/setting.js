@@ -15,6 +15,8 @@ class Setting {
 
 
    	 get(msg,next){
+    console.log(config)
+
       next(config)
     }
 
