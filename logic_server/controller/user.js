@@ -195,15 +195,13 @@ class User {
           const r=await UserModel.findOne({userName:msg.userEmail});
           if(r){
             var newPassWord=Common.GetRandomNum(100000,999999);
-            exports.SedEamll=function(emall,t,txt,hml,SedEamllAdress,SedEamllServer,SedEamllPassWord,callback){
-
             Common.SedEamll(r.userName,"找回密码","新密码:"+newPassWord,"<p>新密码："+newPassWord+"</p>",_config.emall,_config.smtp,_config.password,function(err,info){
                 if(err){
                     data.msg=tip.SendEmailError;
                     data.status=500;
                     next(data)
                 }else{
-                    await UserModel.findOneAndUpdate({userName:msg.userEmail}, { $set:{password:newPassWord}});
+                    await UserModel.findOneAndUpdate({userName:msg.userEmail},{ $set:{password:newPassWord}});
                     data.msg=Tip.SendNewPassWord.replace("e%", r.userName);
                     data.status=200;
                     next(data)
