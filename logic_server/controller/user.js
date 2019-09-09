@@ -199,6 +199,8 @@ class User {
                 if(err){
                     data.msg=Tip.SendEmailError;
                     data.status=500;
+                        console.log(err)
+
                     next(data)
                 }else{
                     await UserModel.findOneAndUpdate({userName:msg.userEmail},{$set:{password:newPassWord}});
