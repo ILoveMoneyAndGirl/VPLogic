@@ -3,13 +3,9 @@ const URLListModel = require("../models").URLList
 async  function _getURLByUser(name){
 
       let urls=await URLListModel.find({userName:name})
-         console.log("________________________________0",urls)
 
       let t={}
       for (var i = 0; i < urls.length; i++) {
-         console.log("________________________________0")
-                    console.log(urls[i].url)
-
         t[urls[i].id]=urls[i].url
       }
 
@@ -21,7 +17,8 @@ class URLList {
         // super()
     }
    async  getURLByUser(name){
-      _getURLByUser(name)
+      let urls=  await _getURLByUser(name)
+      return urls
    }
 
 
@@ -29,7 +26,7 @@ class URLList {
       await URLListModel.remove({id:msg.serialId})
       data.data.serialId=msg.serialId
 
-      data.data.urlList= _getURLByUser(msg.lastUser)
+      data.data.urlList= await _getURLByUser(msg.lastUser)
       data.status=200;
       next(data)
    }
@@ -43,8 +40,6 @@ class URLList {
    }
 
   async  addURLs(msg,data,next){
- console.log("________________________________")
-                    console.log(msg)
 
 
       let urls=msg.urls.split(',')
@@ -55,7 +50,7 @@ class URLList {
           await url.save();
       }
 
-      data.data.urlList=_getURLByUser(msg.lastUser)
+      data.data.urlList=await _getURLByUser(msg.lastUser)
       data.data.tabId=msg.tabId;
       data.status=200;
       next(data)
