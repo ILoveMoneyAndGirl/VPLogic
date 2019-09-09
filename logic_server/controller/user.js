@@ -95,6 +95,9 @@ class User {
             links['homePage']=_config.homePage;
             links['helpQQ']=_config.helpQQ;
             links['helpEmail']=_config.helpEmail;
+            links['chromeLink']=_config.chromeLink;
+
+
 
             // links['invationLink']=_config.mallurl+arg+'&action=invation';
             // links['praiceLink']=_config.mallurl+arg+'&action=praice';
