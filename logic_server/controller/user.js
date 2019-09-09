@@ -195,14 +195,13 @@ class User {
           const r=await UserModel.findOne({userName:msg.userEmail});
           if(r){
             var newPassWord=Common.GetRandomNum(100000,999999);
-
             Common.SedEamll(r.userName,Tip.FindPassword,tip.FindPasswordTxt.replace("e%",newPassWord),tip.FindPasswordHtml.replace("e%",newPassWord),_config.emall,_config.smtp,_config.password,function(err,info){
                 if(err){
                     data.msg=tip.SendEmailError;
                     data.status=500;
                     next(data)
                 }else{
-                    await UserModel.findOneAndUpdate({userName:msg.userEmail},{$set:{password:newPassWord}});
+                    // await UserModel.findOneAndUpdate({userName:msg.userEmail},{$set:{password:newPassWord}});
                     data.msg=Tip.SendNewPassWord.replace("e%", r.userName);
                     data.status=200;
                     next(data)
