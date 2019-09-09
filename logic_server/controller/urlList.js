@@ -46,6 +46,7 @@ class URLList {
       let urls=msg.urls.split(',')
 
       for (var i = 0; i < urls.length; i++) {
+         console.log(urls[i])
           const url =  new URLListModel({userName:msg.lastUser,url:urls[i]})
           await url.save();
       }
