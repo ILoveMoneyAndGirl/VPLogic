@@ -54,6 +54,7 @@ class User {
         if(r){
             data.status=200;
             data.data.key=uuid.v1();
+            data.data.userEmail=r.userName
         }
         next(data)
     }
