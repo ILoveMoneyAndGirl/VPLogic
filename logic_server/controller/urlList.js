@@ -18,10 +18,11 @@ class URLList {
     }
    async  getURLByUser(name){
 
-      return new Promise((resolve, reject) => {
-           let urls=  await _getURLByUser(name)
-           resolve(urls)
-      })
+ 
+      let t= await _getURLByUser(name)
+      console.log(":::::::::::")
+      console.log(t)
+      return t
    }
 
 
@@ -48,7 +49,6 @@ class URLList {
       let urls=msg.urls.split(',')
 
       for (var i = 0; i < urls.length; i++) {
-         console.log(urls[i])
           const url =  new URLListModel({userName:msg.lastUser,url:urls[i]})
           await url.save();
       }
