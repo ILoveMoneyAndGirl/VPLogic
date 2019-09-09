@@ -91,12 +91,16 @@ class User {
 
             // var arg='?userName='+d.lastUser
             // links['mallurl']=_config.mallurl+arg+'&action=buy';
-            // links['homePage']=_config.homePage+arg+'&action=gohome';
+            let links={}
+            links['homePage']=_config.homePage;
+            links['helpQQ']=_config.helpQQ;
+            links['helpEmail']=_config.helpEmail;
+
             // links['invationLink']=_config.mallurl+arg+'&action=invation';
             // links['praiceLink']=_config.mallurl+arg+'&action=praice';
             // links['goolgeStroeLink']=_config.mallurl;
 
-            //data['links']=links;
+            data['links']=links;
          }
     }else {
            data.msg="强制退出"
