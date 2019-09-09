@@ -195,7 +195,8 @@ class User {
           const r=await UserModel.findOne({userName:msg.userEmail});
           if(r){
             var newPassWord=Common.GetRandomNum(100000,999999);
-            Common.SedEamll(r.userName,"找回密码","新密码:"+newPassWord,"<p>新密码："+newPassWord+"</p>",_config.emall,_config.smtp,_config.password,function(err,info){
+
+            Common.SedEamll(r.userName,Tip.FindPassword,tip.FindPasswordTxt.replace("e%",newPassWord),tip.FindPasswordHtml.replace("e%",newPassWord),_config.emall,_config.smtp,_config.password,function(err,info){
                 if(err){
                     data.msg=tip.SendEmailError;
                     data.status=500;

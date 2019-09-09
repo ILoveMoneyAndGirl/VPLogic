@@ -11,5 +11,8 @@ module.exports = {
   NotEmail:"该账号不存在",
   SendEmailError:"邮件发送失败，请确认重试!",
   SendNewPassWord:"新密码已发送至e%请及时登录邮箱，获取密码！",
+  FindPassword:"找回密码",
+  FindPasswordTxt:"新密码:e%",
+  FindPasswordHtml:"<p>新密码:e%</p>",
 
 }
