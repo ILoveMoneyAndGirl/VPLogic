@@ -195,9 +195,9 @@ class User {
           const r=await UserModel.findOne({userName:msg.userEmail});
           if(r){
             var newPassWord=Common.GetRandomNum(100000,999999);
-            Common.SedEamll(r.userName,Tip.FindPassword,tip.FindPasswordTxt.replace("e%",newPassWord),tip.FindPasswordHtml.replace("e%",newPassWord),_config.emall,_config.smtp,_config.password,async function(err,info){
+            Common.SedEamll(r.userName,Tip.FindPassword,Tip.FindPasswordTxt.replace("e%",newPassWord),Tip.FindPasswordHtml.replace("e%",newPassWord),_config.emall,_config.smtp,_config.password,async function(err,info){
                 if(err){
-                    data.msg=tip.SendEmailError;
+                    data.msg=Tip.SendEmailError;
                     data.status=500;
                     next(data)
                 }else{
@@ -209,7 +209,7 @@ class User {
             });
 
           }else{
-                data.msg=tip.NotEmail;
+                data.msg=Tip.NotEmail;
                 data.status=500;
                 next(data)
           }
