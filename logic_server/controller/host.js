@@ -30,7 +30,7 @@ class Host {
           hostList.splice(index,1)
    	  		t["address"]=host.name
    	  		t["id"]=host.id
-   	  		t["info"]=host.head+'://'+host.host+":"+host.port
+   	  		t["info"]=host.head+' '+host.host+":"+host.port
    	  		t["status"]=host.status
    	  		list[i]=t
    	  	}
