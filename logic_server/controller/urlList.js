@@ -17,8 +17,11 @@ class URLList {
         // super()
     }
    async  getURLByUser(name){
-      let urls=  await _getURLByUser(name)
-      return urls
+
+      return new Promise((resolve, reject) => {
+           let urls=  await _getURLByUser(name)
+           resolve(urls)
+      })
    }
 
 
