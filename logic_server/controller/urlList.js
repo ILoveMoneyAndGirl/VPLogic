@@ -40,6 +40,9 @@ class URLList {
 
   async  addURLs(msg,data,next){
 
+                    console.log(msg)
+
+
       let urls=msg.urls.split(',')
 
       for (var i = 0; i < urls.length; i++) {
