@@ -8,6 +8,8 @@ module.exports = {
   Error:"失败",
   TimeOut:"体力耗尽",
   TimeOutTip:"亲，请充值VIP，补充体力～",
-  
+  NotEmail:"该账号不存在",
+  SendEmailError:"邮件发送失败，请确认重试!",
+  SendNewPassWord:"新密码已发送至e%请及时登录邮箱，获取密码！",
 
 }

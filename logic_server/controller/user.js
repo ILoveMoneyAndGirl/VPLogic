@@ -77,31 +77,12 @@ class User {
             day=Math.floor(time/24);
             time=Math.floor(time%24)
             data['day']=day+'天'+time+'小时';
-
-           // var links={}
-
-
-
-  // maxHostCount:10,
-  // mallurl:"dddd",
-  // helpQQ:"1010017806",
-  // helpEmail:"1010017806@qq.com",
-  // homePage:"",
-  // praiceLink:"",
-
-            // var arg='?userName='+d.lastUser
-            // links['mallurl']=_config.mallurl+arg+'&action=buy';
             let links={}
             links['homePage']=_config.homePage;
             links['helpQQ']=_config.helpQQ;
             links['helpEmail']=_config.helpEmail;
             links['chromeLink']=_config.chromeLink;
 
-
-
-            // links['invationLink']=_config.mallurl+arg+'&action=invation';
-            // links['praiceLink']=_config.mallurl+arg+'&action=praice';
-            // links['goolgeStroeLink']=_config.mallurl;
 
             data['links']=links;
          }
@@ -111,65 +92,6 @@ class User {
             data.status=500;
     }
 
-
-//     data_del.isLogin(d.lastUser,d.cookie,function(err,res){
-//         if(err){
-//             data.msg="强制退出"
-//             data.data="FORCE_LOGOUT"
-//             data.status=500;
-
-//         }else if(res.length>0){
-//             data.data=true;
-//             data.status=200;
-//             if(res[0].isfree){
-//                 data['day']='Free';
-//             }else{
-//                 var now= new Date();
-//                 var day=common.strToDate(res[0].date)-now;
-
-//                 if(day<0){
-//                     data['day']='0 天 0小时';
-//                 }else{
-//                     var t=1*1000*60*60;
-//                     var time=day/t; //小时
-
-//                     day=Math.floor(time/24);
-
-//                     time=Math.floor(time%24)
-
-//                     data['day']=day+'天'+time+'小时';
-//                 }
-
-//             }
-//             var links={};
-//             var array=d.version.split("_");
-//             var v;
-//             var n;
-//             if(array.length>1){
-//                 n=array[0];
-//                 v=array[1];
-//             }else{
-//                 v=array[0];
-//                 n="HelloWorld";
-//             }
-
-//             // var arg='?userEmail='+d.lastUser+'&version='+v+'&invationcode='+res[0].invationcode;
-//             // links['mallurl']=C.mallurl(n)+arg+'&action=buy';
-//             // links['homePage']=C.homePage(n)+arg+'&action=gohome';
-//             // links['invationLink']=C.invationLink(n)+arg+'&action=invation';
-//             // links['praiceLink']=C.praiceLink(n)+arg+'&action=praice';
-//             // links['goolgeStroeLink']=C.goolgeStroeLink(n);
-
-//             data['links']=links;
-
-//         }else{
-//             data.msg="强制退出"
-//             data.data="FORCE_LOGOUT"
-//             data.status=500;
-//         }
-//         callback(data,response);
-//     })
-// }
         next(data)
    }
 
@@ -267,6 +189,34 @@ class User {
         next(data)
     }
 
+
+    async findPassword(msg,data,next)
+    {
+          const r=await UserModel.findOne({userName:msg.userEmail});
+          if(r){
+            var newPassWord=Common.GetRandomNum(100000,999999);
+            exports.SedEamll=function(emall,t,txt,hml,SedEamllAdress,SedEamllServer,SedEamllPassWord,callback){
+
+            Common.SedEamll(r.userName,"找回密码","新密码:"+newPassWord,"<p>新密码："+newPassWord+"</p>",_config.emall,_config.smtp,_config.password,function(err,info){
+                if(err){
+                    data.msg=tip.SendEmailError;
+                    data.status=500;
+                    next(data)
+                }else{
+                    await UserModel.findOneAndUpdate({userName:msg.userEmail}, { $set:{password:newPassWord}});
+                    data.msg=Tip.SendNewPassWord.replace("e%", r.userName);
+                    data.status=200;
+                    next(data)
+                }
+            });
+
+          }else{
+                data.msg=tip.NotEmail;
+                data.status=500;
+                next(data)
+          }
+    }
+
    async addTime(msg,next) 
     {
         const u=await UserModel.findOne({userName:msg.userName});
@@ -279,6 +229,8 @@ class User {
 
         next({price:g.price})
     }
+
+
 
     async userInfo(msg,data,next) 
     {

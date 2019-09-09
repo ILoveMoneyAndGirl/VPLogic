@@ -107,6 +107,10 @@ var event = new EventEmitter();
 event.on('pingServer',User.isLogin); 
 event.on('register',User.register); 
 event.on('checkRegister',User.checkRegister); 
+event.on('resetPassword',User.resetPassword);
+event.on('findPassword',User.findPassword);
+
+
 event.on('login',User.login); 
 //--------------WebSocket-----------------
 event.on('loadGoods',Goods.getGoodsAll); 
@@ -150,6 +154,7 @@ event.on('fetchPac',async function(msg,data,next){
 	next(data)
 
 }); 
+
 
 
 event.on('loadPxyList',async function(msg,data,next){

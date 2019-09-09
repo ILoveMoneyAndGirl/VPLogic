@@ -9,4 +9,7 @@ module.exports = {
   payUrl:"http://pay.liguaika.xyz:3000/order",
   payToken:"q02PLH5Q",
   appID:"Owy2e3E",
+  emall:"fishdivetechnology@gmail.com",
+  smtp:"smtp.gmail.com",
+  password:"fishDiveyibo.c.c.c",
 }
