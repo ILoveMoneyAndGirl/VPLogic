@@ -3,9 +3,13 @@ const URLListModel = require("../models").URLList
 async  function _getURLByUser(name){
 
       let urls=await URLListModel.find({userName:name})
+         console.log("________________________________0",urls)
 
       let t={}
       for (var i = 0; i < urls.length; i++) {
+         console.log("________________________________0")
+                    console.log(urls[i].url)
+
         t[urls[i].id]=urls[i].url
       }
 
