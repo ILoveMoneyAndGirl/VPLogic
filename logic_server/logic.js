@@ -118,7 +118,7 @@ event.on('checkLogin',User.checkLogin);
 event.on('addTime',User.addTime); 
 event.on('userInfo',User.userInfo); 
 event.on('getInfo',function(msg,data,next){
-   var host=["logic.liguaika.xyz:8888","logic.liguaika.xyz:9999"]
+   var host=["172.105.116.57:8888","172.105.116.57:9999"]
    next(host)
 }); 
 
