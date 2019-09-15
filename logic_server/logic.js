@@ -310,6 +310,9 @@ exports.LogicDel=function (msg,next)
 
 }
 
+event.on('GetUser',User.getUserList); 
+
+
 event.on('GetGoods',Goods.getGoodsList); 
 event.on('AddGoods',Goods.AddGoods); 
 event.on('UpdateGoods',Goods.UpdateGoods); 
