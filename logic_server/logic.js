@@ -15,7 +15,7 @@ var responseData={"callback":"","data":"","disptch":true,"msg":"","status":500};
 var RD_data={"comment":null,"comments":[],"cookie":"","homePage":config.homePage,"invationCode":"","invationLink":config.invationLink,"key":"","msg":"","notices":[],"praiceLink":config.praiceLink,"prxList":[],"serialId":"","tabId":"","url":"","urlList":null,"userEmail":"","versionStatus":0};
 
 
-const notifyUrl="http://"+settings.webIp+":"+settings.webPort+"/payback"
+const notifyUrl="http://"+config.netIP+":"+settings.webPort+"/payback"
 // function pingServer
 // function register 
 // function checkRegister
