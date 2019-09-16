@@ -65,10 +65,7 @@ try{
          var arg=url.parse(request.url.replace(/amp;/g ,""),true).query;
          try{
               let ip=getClientIp(request)
-              console.log("-getClientIp---->ip",ip)
               arg.ip=ip
-              console.log("-getClientIp---->ip", arg.ip)
-
               logic.LogicDel(arg,function(data){
                 if(data){
                   console.log("HTTP SEND:",data);

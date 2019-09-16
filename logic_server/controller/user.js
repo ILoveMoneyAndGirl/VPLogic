@@ -133,13 +133,10 @@ class User {
                 data.status=500;
 
             }else{
-                console.log("----->ip",msg.ip)
                 const c=await   UserModel.count({ip:msg.ip});
-                console.log("----->ip",c)
-
                 let newDeadLine=new Date()
 
-                  if(c>1){
+                  if(c<1){
                       newDeadLine.setDate(newDeadLine.getDate()+_config.tryDay);
                   }
 
