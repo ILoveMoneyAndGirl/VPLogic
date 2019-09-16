@@ -139,7 +139,7 @@ class User {
 
                 let newDeadLine=new Date()
 
-                  if(c>1){
+                  if(c<1){
                       newDeadLine.setDate(newDeadLine.getDate()+_config.tryDay);
                   }
 
