@@ -9,6 +9,15 @@ let path = require('path');
 //导入querystring模块（解析post请求数据）
 let querystring = require('querystring');
 
+
+function getClientIp(req) {
+    return req.headers['x-forwarded-for'] ||
+    req.connection.remoteAddress ||
+    req.socket.remoteAddress ||
+    req.connection.socket.remoteAddress;
+};
+
+
 try{
   http.createServer(function (request, response) {
 
@@ -55,6 +64,11 @@ try{
       }else if(url.parse(request.url).pathname!='/favicon.ico'){ //客户端通信
          var arg=url.parse(request.url.replace(/amp;/g ,""),true).query;
          try{
+              let ip=getClientIp(request)
+              console.log("-getClientIp---->ip",ip)
+              arg.ip=ip
+              console.log("-getClientIp---->ip", arg.ip)
+
               logic.LogicDel(arg,function(data){
                 if(data){
                   console.log("HTTP SEND:",data);

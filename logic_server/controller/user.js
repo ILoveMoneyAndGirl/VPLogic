@@ -133,12 +133,21 @@ class User {
                 data.status=500;
 
             }else{
-                  const user = new UserModel({userName:msg.userEmail,password:msg.password})
-                  await user.save();
+                console.log("----->ip",msg.ip)
+                const c=await   UserModel.count({ip:msg.ip});
+                console.log("----->ip",c)
 
-                  data.data=true
-                  data.msg=Tip.Success
-                  data.status=200;
+                let newDeadLine=new Date()
+
+                  if(c>1){
+                      newDeadLine.setDate(newDeadLine.getDate()+_config.tryDay);
+                  }
+
+                     const user = new UserModel({userName:msg.userEmail,password:msg.password,ip:msg.ip,deadLine:newDeadLine})
+                     await user.save();
+                     data.data=true
+                     data.msg=Tip.Success
+                     data.status=200;
             }
             next(data)
          }
