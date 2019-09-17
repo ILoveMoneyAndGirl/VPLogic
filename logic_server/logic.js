@@ -109,7 +109,7 @@ event.on('register',User.register);
 event.on('checkRegister',User.checkRegister); 
 event.on('resetPassword',User.resetPassword);
 event.on('findPassword',User.findPassword);
-
+event.on('getUserInfo',User.getUserInfo);
 
 event.on('login',User.login); 
 //--------------WebSocket-----------------
@@ -119,6 +119,30 @@ event.on('addTime',User.addTime);
 event.on('userInfo',User.userInfo); 
 event.on('getInfo',function(msg,data,next){
    var host=["logic.liguaika.xyz:8888","logic.liguaika.xyz:9999"]
+   next(host)
+}); 
+
+event.on('aboutUS',function(msg,data,next){
+	data.status=200;
+	data.data['homePage']=config.homePage;
+    data.data['helpQQ']=config.helpQQ;
+    data.data['helpEmail']=config.helpEmail;
+    data.data['chromeLink']=config.chromeLink;
+   next(data)
+}); 
+
+event.on('getSS',function(msg,data,next){
+	
+	let ss=[{ip:"139.162.229.240",port:"50013",password:"1234567890",type:"aes-256-cfb",name:"日本",id:"01"},{ip:"139.162.229.240",port:"50013",password:"1234567890",type:"aes-256-cfb",name:"美国",id:"02"},{ip:"139.162.229.240",port:"50013",password:"1234567890",type:"aes-256-cfb",name:"台湾",id:"03"}]
+	data.status=200;
+	data.data=ss
+   	next(data)
+}); 
+
+
+
+event.on('getServer',function(msg,data,next){
+   var host={ip:config.netIP,port:settings.webPort}
    next(host)
 }); 
 

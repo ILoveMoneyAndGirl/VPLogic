@@ -103,6 +103,38 @@ class User {
         next(data)
    }
 
+
+    async getUserInfo(msg,data,next) 
+   {
+
+     const u=await UserModel.findOne({cookie:msg.cookie});
+
+        data.status=200;
+    if(u){
+        let day=u.deadLine-new Date()
+        if(day<0)
+        {
+             data['day']='0 天 0小时'
+             data["timeOut"]=true
+        }
+
+         else{
+            var t=1*1000*60*60;
+            var time=day/t; //小时
+            day=Math.floor(time/24);
+            time=Math.floor(time%24)
+            data['day']=day+'天'+time+'小时';
+            data["timeOut"]=false
+         }
+    }else {
+        data.msg="强制退出"
+        data.data="FORCE_LOGOUT"
+        data.status=500;
+    }
+
+        next(data)
+   }
+
     
 
     async getUserByName(name) 
