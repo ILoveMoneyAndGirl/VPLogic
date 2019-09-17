@@ -1,0 +1,93 @@
+
+通用字段:
+callback:如果客服端发送消息带有callback 字段，服务器将原样返回
+status:200 服务器操作正常，500 服务器操作异常
+msg:提示信息
+data:返回数据
+
+0.获取服务器连接地址：
+	send:{action:"getServer"}
+	recv:{ip:"logic.liguaika.xyz",port:8888}
+
+1.判断邮箱是否注册
+
+	send:{action:"checkRegister",userEmail:"xxxx@email",callback:"可略"}
+	 邮箱已存在
+	recv:{"callback":"","data":true,"disptch":true,"msg":"提示信息","status":500}
+	 邮箱不存在
+	recv:{"callback":"","data":false,"disptch":true,"msg":"","status":200}
+
+2.注册：
+	send:{action:"register",userEmail:"xxxx@email",callback:"可略",password:"",rePassword:""}
+	 成功
+	recv:{"callback":"","data":false,"disptch":true,"msg":"注册失败","status":500}
+	 失败
+	recv:{"callback":"","data":true,"disptch":true,"msg":"注册成功","status":200}
+
+
+3.修改密码：
+	send:{action:"resetPassword",lastUser:"xxxx@email",callback:"可略",newPwd1:"",newPwd2:"",oldPwd:""}
+	 成功
+	recv:{"callback":"","data":"","disptch":true,"msg":"修改成功","status":500}
+	 失败
+	recv:{"callback":"","data":"","disptch":true,"msg":"修改失败","status":200}
+
+4.找回密码：
+	send:{action:"findPassword",userEmail:"xxxx@email",callback:"可略"}
+	 成功
+	recv:{"callback":"","data":"","disptch":true,"msg":"发送新密码至邮箱失败","status":500}
+	 失败
+	recv:{"callback":"","data":"","disptch":true,"msg":"已发送新密码，到邮箱，请查取","status":200}
+
+5.登录：
+	send:{action:"login",userEmail:"xxxx@email",callback:"可略",password:""}
+	成功
+	recv:{"callback":"","data":{cookie:"xxxx",key:"xxx",userEmail:"xxx"},"disptch":true,"msg":"发送新密码至邮箱失败","status":500}
+	失败
+	recv:{"callback":"","data":false,"disptch":true,"msg":"登录失败","status":500}
+
+6.获取用户信息:
+	send:{action:"getUserInfo",cookie:"xxxxxxxx",callback:"可略"}
+	不存在该cookie，强制退出　
+	recv:{"callback":"","data":"FORCE_LOGOUT","disptch":true,"msg":"强制退出","status":500}
+	时间过期
+	recv:{"callback":"","data":{day:"0天0小时",timeOut:true},"disptch":true,"msg":"","status":200}
+	时间未过期
+	recv:{"callback":"","data":{day:"1天0小时",timeOut:false},"disptch":true,"msg":"","status":200}
+
+
+7.关于我们:
+	send:{action:"aboutUS",callback:"可略"}
+
+	recv:{"callback":"","data":{homePage:"http://xxx",helpQQ:"1232",helpEmail:"xxxx","chromeLink":"http://"},"disptch":true,"msg":"","status":200}
+9.获取ss服务器列表
+
+	send:{action:"getSS",cookie:"xxxxxxxx",callback:"可略",time:"",key:""} 其中key=MD5(time+cookie) time为时间戳
+
+	成功
+	recv:{"callback":"","data":[{ip:"",port:"",password:"",type:"aes-256-cfb",name:"日本",id:"xxx"}],"disptch":true,"msg":"","status":200}
+
+	失败
+	recv:{"callback":"","data":[],"disptch":true,"msg":"","status":500}
+
+10.获取商品列表
+
+	send:{action:"loadGoods",callback:"可略"}
+
+	recv:{"callback":"","data":{goods:[{id:"商品id",price:"价格",day:时间,des:"描述"}]},"disptch":true,"msg":"","status":200}
+
+11. 下单获取支付二维码
+	send:{action:"loadQRcode",callback:"可略",cookie:"",id:"商品id" channel:"渠道，0支付宝，1微信"}
+
+	下单成功
+	recv:{"callback":"","data":{qrcode:"二维码地址","realPrice":"实际价格",orderId:"订单号",isAny:"是否为任意金额二维码 值为true 或者false",price:"目标价格",error:"异常信息",msg:"信息提示",timeOut:超时时间},"disptch":true,"msg":"","status":200}
+
+	未找到用户或商品ID
+	recv:{"callback":"","data":"","disptch":true,"msg":"","status":500}
+
+
+
+
+
+
+
