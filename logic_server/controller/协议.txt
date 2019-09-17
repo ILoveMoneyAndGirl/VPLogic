@@ -6,7 +6,7 @@ msg:提示信息
 data:返回数据
 
 0.获取服务器连接地址：
-	send:{action:"getServer"}
+	send:{action:"getServer",verson:"ss_1.0.0"}
 	recv:{ip:"logic.liguaika.xyz",port:8888}
 
 1.判断邮箱是否注册

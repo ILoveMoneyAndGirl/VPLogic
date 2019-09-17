@@ -199,6 +199,14 @@ class User {
         next(data);
     }
 
+    async deleteUser(msg,next)
+    {
+        const data=  await UserModel.remove({
+                id: msg.id
+            });
+        next(data)
+    }
+
     async login(msg,data,next) 
     {
         let cookie=Common.Getuuid();

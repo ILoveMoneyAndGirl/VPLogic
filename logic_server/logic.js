@@ -335,6 +335,7 @@ exports.LogicDel=function (msg,next)
 }
 
 event.on('GetUser',User.getUserList); 
+event.on('deleteUser',User.deleteUser); 
 
 
 event.on('GetGoods',Goods.getGoodsList); 

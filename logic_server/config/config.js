@@ -13,5 +13,5 @@ module.exports = {
   smtp:"smtp.gmail.com",
   password:"fishDiveyibo.c.c.c",
   netIP:"172.105.116.57",
-  tryDay:15,
+  tryDay:10,
 }
