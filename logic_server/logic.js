@@ -326,7 +326,7 @@ exports.LogicDel=function (msg,next)
 		}
 
 
-		console.log("ACTION22:",msg.action)
+		console.log("ACTION:",msg.action)
 		event.emit(msg.action,msg,data,next)
 
 	// }
@@ -364,7 +364,7 @@ event.on('addUserTime',User.addTime);
 exports.Setting=function (msg,next){
 		console.log("Setting")
 
-	console.log("ACTION1-------:",msg.action)
+	console.log("ACTION:",msg.action)
 	console.log(msg)
 	event.emit(msg.action,msg,next)
 }
