@@ -199,7 +199,7 @@ class User {
         next(data);
     }
 
-    async deleteUser(msg,next)
+    async deleteUsers(msg,next)
     {
         console.log("???????????")
         console.log("deleteUser---->",msg)
