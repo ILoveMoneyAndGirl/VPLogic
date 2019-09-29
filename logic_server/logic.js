@@ -335,6 +335,7 @@ exports.LogicDel=function (msg,next)
 }
 
 event.on('GetUser',User.getUserList); 
+
 event.on('deleteUser',function()
 {
 	console.log("deleteUsers")
@@ -365,7 +366,7 @@ event.on('addUserTime',User.addTime);
 
 
 exports.Setting=function (msg,next){
-	console.log("ACTION:",msg.action)
+	console.log("ACTION1:",msg.action)
 	console.log(msg)
 	event.emit(msg.action,msg,next)
 }
