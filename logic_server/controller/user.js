@@ -201,6 +201,7 @@ class User {
 
     async deleteUser(msg,next)
     {
+        console.log("???????????")
         console.log("deleteUser---->",msg)
         const data=  await UserModel.remove({
                 id: msg.id
