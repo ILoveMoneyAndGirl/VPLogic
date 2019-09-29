@@ -1,10 +1,10 @@
 module.exports = {
   maxHostCount:10,
   mallurl:"dddd",
-  helpQQ:"QQ:1010017806",
+  helpQQ:"请访问https://github.com/fishdivetechnology/StormVPN，该页面有联系QQ",
   helpEmail:"fishdivetechnology@gmail.com",
-  homePage:"https://github.com/fishdivetechnology/home/wiki",
-  chromeLink:"https://github.com/fishdivetechnology/home/wiki",
+  homePage:"https://github.com/fishdivetechnology/StormVPN",
+  chromeLink:"https://chrome.google.com/webstore/detail/gdgekinnjookhmchkemmnejcnfcaehhc/publish-delayed?hl=zh-CN&authuser=1",
   praiceLink:"",
   payUrl:"http://pay.liguaika.xyz:3000/order",
   payToken:"q02PLH5Q",
