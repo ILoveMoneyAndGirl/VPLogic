@@ -19,7 +19,7 @@ class User {
     {
         let sendData={}
         sendData.data = await UserModel.find(msg.queryObj).sort({
-            deadLine: -1
+            deadLine: 1
         }).skip(Number(msg.pageSize) * (Number(msg.current) - 1)).limit(Number(msg.pageSize));
         sendData.totalItems = await UserModel.count(msg.queryObj);
         next(sendData)
