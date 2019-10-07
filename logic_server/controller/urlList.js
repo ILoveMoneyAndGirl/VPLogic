@@ -10,6 +10,11 @@ async  function _getURLByUser(name){
         t[urls[i].id]=urls[i].url
       }
 
+      let u1= await URLListModel.find(config.commonUser)
+      for (var i = 0; i < u1.length; i++) {
+        t[u1[i].id]=u1[i].url
+      }
+
       return t
 }
 
@@ -19,11 +24,7 @@ class URLList {
     }
    async  getURLByUser(name){
 
-       console.log("------------------------->>>>>>>")
-
-       console.log(":::::::::::--->",name)
-      let u1= await _getURLByUser(config.commonUser)
-       console.log(":::::::::::--->u1",u1)
+       console.log("------------------vvvv------->>>>>>>")
 
       let t= await _getURLByUser(name)
       console.log(":::::::::::---<t",t)
