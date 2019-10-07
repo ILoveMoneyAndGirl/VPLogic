@@ -208,8 +208,11 @@ event.on('loadPxyList',async function(msg,data,next){
 }); 
 
 event.on('fetchDomains',async function(msg,data,next){
+			console.log("XXXXXX0q")
 
 	let url=await URLList.getURLByUser(msg.lastUser)
+							console.log("XXXXXX1q",url)
+
 	data.data.urlList=url
 	data.status=200;
 	next(data)
