@@ -57,6 +57,8 @@ class User {
         // data.cookie=msg.cookie
         // data.userEmail=msg.lastUser;
         // data.data= "";
+            console.log("_____________>start.....isLogin");
+
          data.status=5000;
         const r=await UserModel.findOne({cookie:msg.cookie});
         if(r){

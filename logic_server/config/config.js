@@ -13,6 +13,6 @@ module.exports = {
   smtp:"smtp.gmail.com",
   password:"fishDiveyibo.c.c.c",
   netIP:"172.105.116.57",
-  commonUser:"test3@test.com",,
+  commonUser:"test3@test.com",
 
 }
