@@ -285,10 +285,10 @@ event.on('addURL',URLList.addURL);
 event.on('addURLs',URLList.addURLs); 
 event.on('updateURL',URLList.updateURL); 
 
-event.on('updateUserPxy',function(msg,data,next)
-	{
-		next(msg)
-	}); 
+// event.on('updateUserPxy',function(msg,data,next)
+// 	{
+// 		next(msg)
+// 	}); 
 
 
 
