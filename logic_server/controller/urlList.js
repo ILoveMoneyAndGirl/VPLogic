@@ -1,4 +1,5 @@
 const URLListModel = require("../models").URLList
+let config = require('../config/config');
 
 async  function _getURLByUser(name){
 
@@ -19,9 +20,11 @@ class URLList {
    async  getURLByUser(name){
 
        console.log(":::::::::::--->",name)
+      let u1= await _getURLByUser(config.commonUser)
+       console.log(":::::::::::--->u1",u1)
 
       let t= await _getURLByUser(name)
-      console.log(":::::::::::")
+      console.log(":::::::::::---<t",t)
       console.log(t)
       return t
    }
