@@ -162,16 +162,15 @@ event.on('fetchPac',async function(msg,data,next){
 	let user=await User.getUserByCookie(msg.cookie)
 	let now= new Date()
 	if(user){
+		let url=await URLList.getURLByUser(user.userName)
+		data.data.urlList=url
+		data.data.lastUser=user.userName
 		if(user.deadLine<now)
 			data.data.notices[0]={title:Tip.TimeOut,content:Tip.TimeOutTip}
 		else{
 			
 			let list= await Host.GetHost()
-			let url=await URLList.getURLByUser(user.userName)
-
 			data.data.prxList=list
-			data.data.urlList=url
-			data.data.lastUser=user.userName
 			data.data.notices[0]=await Notice.getOneNotice()
 		}
 		data.status=200;
