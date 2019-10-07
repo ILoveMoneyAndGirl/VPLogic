@@ -167,7 +167,10 @@ event.on('fetchPac',async function(msg,data,next){
 		else{
 			
 			let list= await Host.GetHost()
+			console.log("XXXXXX0")
 			let url=await URLList.getURLByUser(user.userName)
+						console.log("XXXXXX1",url)
+
 			data.data.prxList=list
 			data.data.urlList=url
 			data.data.lastUser=user.userName
