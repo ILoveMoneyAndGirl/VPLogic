@@ -119,7 +119,7 @@ event.on('addTime',User.addTime);
 event.on('userInfo',User.userInfo); 
 event.on('getInfo',function(msg,data,next){
 	console.log("_____________>start.....");
-   var host=["logic.liguaika.xyz:8888","logic.liguaika.xyz:9999"]
+   var host=["logic.liguaika.xyz:"+config.webPort,"logic.liguaika.xyz:"+config.socketPort]
    next(host)
 }); 
 
