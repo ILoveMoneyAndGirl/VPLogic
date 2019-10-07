@@ -159,7 +159,6 @@ var subData={"comment":null,"comments":[],"cookie":"","homePage":setting.homePag
 
 event.on('fetchPac',async function(msg,data,next){
 
-	console.log("???????????????????___>>>??????????????")
 	let user=await User.getUserByCookie(msg.cookie)
 	let now= new Date()
 	if(user){
@@ -168,9 +167,7 @@ event.on('fetchPac',async function(msg,data,next){
 		else{
 			
 			let list= await Host.GetHost()
-			console.log("XXXXXX0")
 			let url=await URLList.getURLByUser(user.userName)
-						console.log("XXXXXX1",url)
 
 			data.data.prxList=list
 			data.data.urlList=url
@@ -209,10 +206,8 @@ event.on('loadPxyList',async function(msg,data,next){
 }); 
 
 event.on('fetchDomains',async function(msg,data,next){
-			console.log("XXXXXX0q")
 
 	let url=await URLList.getURLByUser(msg.lastUser)
-							console.log("XXXXXX1q",url)
 
 	data.data.urlList=url
 	data.status=200;

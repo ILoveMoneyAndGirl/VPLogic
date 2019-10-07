@@ -24,11 +24,7 @@ class URLList {
     }
    async  getURLByUser(name){
 
-       console.log("------------------vvvv------->>>>>>>")
-
       let t= await _getURLByUser(name)
-      console.log(":::::::::::---<t",t)
-      console.log(t)
       return t
    }
 
