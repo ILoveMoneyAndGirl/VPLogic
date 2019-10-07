@@ -70,7 +70,7 @@ class URLList {
       
       const url =  new URLListModel ({userName:msg.lastUser,url:msg.url})
       await url.save();
-      data.data.url=d.url;
+      data.data.url=msg.url;
       data.data.serialId=msg.serialId
       data.status=200;
       next(data)
