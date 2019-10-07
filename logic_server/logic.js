@@ -172,7 +172,7 @@ event.on('fetchPac',async function(msg,data,next){
 			let list= await Host.GetHost()
 			data.data.prxList=list
 
-			let tip={'title':'一直模式可有效加速','content':',未爬墙时,请关闭一直,否则影响常规网站访问'}
+			let tip={'title':'一直模式可有效加速','content':'未爬墙时,请关闭一直,否则影响常规网站访问'}
 			 data.data.notices[0]=tip
 			// data.data.notices[0]=await Notice.getOneNotice()
 		}
@@ -199,7 +199,7 @@ event.on('loadPxyList',async function(msg,data,next){
 			data.data.prxList=list
 			data.data.lastUser=user.userName
 			// data.data.notices[0]=await Notice.getOneNotice()
-			let tip={'title':'一直模式可有效加速','content':',未爬墙时,请关闭一直,否则影响常规网站访问'}
+			let tip={'title':'一直模式可有效加速','content':'未爬墙时,请关闭一直,否则影响常规网站访问'}
 			 data.data.notices[0]=tip
 		}
 	 data.status=200;
