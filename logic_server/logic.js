@@ -359,6 +359,7 @@ event.on('deleteGoods',Goods.deleteGoods);
 
 event.on('GetHost',Host.getHostList); 
 event.on('AddHost',Host.AddHost); 
+event.on('AddOrUpdateHost',Host.AddOrUpdateHost); 
 event.on('UpdateHost',Host.UpdateHost); 
 event.on('deleteHost',Host.deleteHost); 
 

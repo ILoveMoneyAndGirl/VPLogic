@@ -51,11 +51,29 @@ class Host {
 
     async AddHost(msg,next)
     {
-        console.log("AddHost--->")
-        console.log(msg.newData)
          const newObj = new HostModel(msg.newData);
          const data = await newObj.save();
          next(data)
+    }
+
+    async AddOrUpdateHost(msg,next)
+    {
+      for (var i = 0; i < msg.info; i++) {
+          
+          let c= await HostModel.count({host:msg.info[i].host})
+          if(c>0)
+          {
+              console.log("Update",msg.info[i])
+              await HostModel.findOneAndUpdate({host:msg.info[i].host},{$set:{port:msg.info[i].port}})
+              console.log("Update Seccess")
+          }else{
+              console.log("Add",msg.info[i])
+              const newObj = new HostModel({host:msg.info[i].host,port:msg.info[i].port,type:0,head:"https",status:0,name:msg.info[i].name});
+              const data1 = await newObj.save();
+              console.log("Add Seccess")
+          }
+      }
+      next({code:1})
     }
 
     async UpdateHost(msg,next)
