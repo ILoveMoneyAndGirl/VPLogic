@@ -56,7 +56,7 @@ class Host {
          next(data)
     }
 
-    async AddOrUpdateHost(msg,next)
+    async AddOrUpdateHost(msg,data,next)
     {
       console.log(msg.info)
       for (var i = 0; i < msg.info; i++) {
