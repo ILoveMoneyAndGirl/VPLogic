@@ -65,7 +65,7 @@ class Host {
           let c= await HostModel.count({host:msg.info[i].host})
           if(c>0)
           {
-              console.log("Update",msg.info[i])
+              console.log("Update",msg.info[i].host)
               await HostModel.findOneAndUpdate({host:msg.info[i].host},{$set:{port:msg.info[i].port}})
               console.log("Update Seccess")
           }else{
