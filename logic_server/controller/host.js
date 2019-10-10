@@ -2,7 +2,7 @@ const HostModel = require("../models").Host
 const UserModel = require("../models").User
 const SettingsModel = require("../models").Settings
 
-const Setting = require('../config/setting');
+const config = require('../config/config');
 
 
 const Common=require('../common.js')
@@ -21,7 +21,7 @@ class Host {
    	  	let hostList=await HostModel.find({enable:true})
    	  	let list=[]
 
-   	  	let count=Setting.maxHostCount>hostList.length?Setting.maxHostCount:hostList.length
+   	  	let count=config.maxHostCount<hostList.length?config.maxHostCount:hostList.length
 
    	  	for (var i = 0; i < count; i++) {
    	  		let t={}
