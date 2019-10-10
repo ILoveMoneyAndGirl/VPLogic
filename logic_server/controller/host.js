@@ -48,6 +48,8 @@ class Host {
                 lastList[i]["info"]=list[i]["info"]+";"+list[j]["info"]
             }
         }
+        console.log("_____nnnnnnnnnnnnnnnnnnnn____>")
+        console.log(lastList)
    	  	return lastList
    	  
    	  }
