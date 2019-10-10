@@ -21,7 +21,7 @@ class Host {
    	  	let hostList=await HostModel.find({enable:true})
    	  	let list=[]
 
-   	  	let count=Setting.maxHostCount<hostList.length?Setting.maxHostCount:hostList.length
+   	  	let count=Setting.maxHostCount>hostList.length?Setting.maxHostCount:hostList.length
 
    	  	for (var i = 0; i < count; i++) {
    	  		let t={}
