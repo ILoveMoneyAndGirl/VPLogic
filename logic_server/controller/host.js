@@ -34,7 +34,21 @@ class Host {
    	  		t["status"]=host.status
    	  		list[i]=t
    	  	}
-   	  	return list
+
+        let lastList=[]
+
+        for (var i = 0; i < list.length; i++) {
+          lastList[i]={}
+          lastList[i]["address"]=list[i]["address"]
+          lastList[i]["id"]=list[i]["id"]
+          lastList[i]["status"]=list[i]["status"]
+            for (var j = 0; j < list.Things.length; j++) {
+                if(j==i)
+                    continue
+                lastList[i]["info"]=list[i]["info"]+";"+list[j]["info"]
+            }
+        }
+   	  	return lastList
    	  
    	  }
 
