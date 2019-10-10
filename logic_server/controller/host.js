@@ -42,10 +42,11 @@ class Host {
           lastList[i]["address"]=list[i]["address"]
           lastList[i]["id"]=list[i]["id"]
           lastList[i]["status"]=list[i]["status"]
+          lastList[i]["info"]=""
             for (var j = 0; j < list.length; j++) {
                 if(j==i)
                     continue
-                lastList[i]["info"]=list[i]["info"]+";"+list[j]["info"]
+                lastList[i]["info"]=lastList[i]["info"]+list[i]["info"]+";"+list[j]["info"]
             }
         }
         console.log("_____nnnnnnnnnnnnnnnnnnnn____>")
