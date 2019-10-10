@@ -42,7 +42,7 @@ class Host {
           lastList[i]["address"]=list[i]["address"]
           lastList[i]["id"]=list[i]["id"]
           lastList[i]["status"]=list[i]["status"]
-            for (var j = 0; j < list.Things.length; j++) {
+            for (var j = 0; j < list.length; j++) {
                 if(j==i)
                     continue
                 lastList[i]["info"]=list[i]["info"]+";"+list[j]["info"]
