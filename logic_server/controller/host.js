@@ -58,22 +58,26 @@ class Host {
 
     async AddOrUpdateHost(msg,data,next)
     {
-      console.log(msg.info)
-       console.log(msg.info.length)
-         console.log(msg.info[0])
-         console.log("????????")
-      for (var i = 0; i < msg.info.length; i++) {
-                console.log(msg.info[i])
 
-          let c= await HostModel.count({host:msg.info[i].host})
+        let info=JSON.parse(msg.info)
+
+              console.log(info)
+       console.log(info.length)
+         console.log(info[0])
+         console.log("????????")
+
+      for (var i = 0; i < info.length; i++) {
+                console.log(info[i])
+
+          let c= await HostModel.count({host:info[i].host})
           if(c>0)
           {
               console.log(msg.info[i].host)
-              await HostModel.findOneAndUpdate({host:msg.info[i].host},{$set:{port:msg.info[i].port}})
+              await HostModel.findOneAndUpdate({host:info[i].host},{$set:{port:info[i].port}})
               console.log("Update Seccess")
           }else{
               console.log(msg.info[i])
-              const newObj = new HostModel({host:msg.info[i].host,port:msg.info[i].port,type:0,head:"https",status:0,name:msg.info[i].name});
+              const newObj = new HostModel({host:info[i].host,port:info[i].port,type:0,head:"https",status:0,name:info[i].name});
               const data1 = await newObj.save();
               console.log("Add Seccess")
           }
