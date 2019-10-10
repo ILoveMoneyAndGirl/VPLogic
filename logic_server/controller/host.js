@@ -59,6 +59,9 @@ class Host {
     async AddOrUpdateHost(msg,data,next)
     {
       console.log(msg.info)
+       console.log(msg.info.length)
+         console.log(msg.info[0])
+         console.log("????????")
       for (var i = 0; i < msg.info.length; i++) {
                 console.log(msg.info[i])
 
