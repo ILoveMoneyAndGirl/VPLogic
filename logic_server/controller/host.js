@@ -65,11 +65,11 @@ class Host {
           let c= await HostModel.count({host:msg.info[i].host})
           if(c>0)
           {
-              console.log("Update",msg.info[i].host)
+              console.log(msg.info[i].host)
               await HostModel.findOneAndUpdate({host:msg.info[i].host},{$set:{port:msg.info[i].port}})
               console.log("Update Seccess")
           }else{
-              console.log("Add",msg.info[i])
+              console.log(msg.info[i])
               const newObj = new HostModel({host:msg.info[i].host,port:msg.info[i].port,type:0,head:"https",status:0,name:msg.info[i].name});
               const data1 = await newObj.save();
               console.log("Add Seccess")
