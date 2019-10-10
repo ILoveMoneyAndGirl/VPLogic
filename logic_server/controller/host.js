@@ -59,8 +59,9 @@ class Host {
     async AddOrUpdateHost(msg,data,next)
     {
       console.log(msg.info)
-      for (var i = 0; i < msg.info; i++) {
-          
+      for (var i = 0; i < msg.info.length; i++) {
+                console.log(msg.info[i])
+
           let c= await HostModel.count({host:msg.info[i].host})
           if(c>0)
           {
