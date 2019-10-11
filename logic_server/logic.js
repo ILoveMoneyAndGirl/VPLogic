@@ -305,10 +305,18 @@ event.on('updateURL',URLList.updateURL);
 //--------------Manager-----------------
 
 
+PingPoxyServer={}
 
+event.on('PushPingPoxyServer',function(msg,data,next){
+	PingPoxyServer=msg.PingPoxyServer
+	console.log(PingPoxyServer)
+	next({code:1})
+}); 
 
-
-
+event.on('GetPingPoxyServer',function(msg,data,next){
+	console.log(PingPoxyServer)
+	next(PingPoxyServer)
+}); 
 
 
 
