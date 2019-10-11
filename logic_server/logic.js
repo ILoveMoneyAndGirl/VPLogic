@@ -305,7 +305,7 @@ event.on('updateURL',URLList.updateURL);
 //--------------Manager-----------------
 
 
-PingPoxyServer={}
+PingPoxyServer=[]
 
 event.on('PushPingPoxyServer',function(msg,data,next){
 	PingPoxyServer=msg.PingPoxyServer
