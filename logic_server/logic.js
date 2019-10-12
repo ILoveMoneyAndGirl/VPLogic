@@ -366,10 +366,10 @@ event.on('UpdateGoods',Goods.UpdateGoods);
 event.on('deleteGoods',Goods.deleteGoods); 
 
 
-event.on('GetNotice',Goods.getNoticeList); 
-event.on('AddNotice',Goods.AddNotice); 
-event.on('UpdateNotice',Goods.UpdateNotice); 
-event.on('deleteNotice',Goods.deleteNotice); 
+event.on('GetNotice',Notice.getNoticeList); 
+event.on('AddNotice',Notice.AddNotice); 
+event.on('UpdateNotice',Notice.UpdateNotice); 
+event.on('deleteNotice',Notice.deleteNotice); 
 
 
 event.on('GetHost',Host.getHostList); 
