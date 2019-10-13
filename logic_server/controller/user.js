@@ -275,13 +275,13 @@ class User {
 
    async addTime(msg,next) 
     {
-        const u=await UserModel.findOne({userName:msg.userName});
+        const u=await UserModel.findOne({id:msg.userName});
         const g=await GoodsModel.findOne({id:msg.goodsId});
         let newDeadLine=new Date()
         if((u.deadLine- newDeadLine)>0)
             newDeadLine=u.deadLine
         newDeadLine.setDate(newDeadLine.getDate()+g.days);
-        await UserModel.findOneAndUpdate({userName:msg.userName},{$set:{deadLine:newDeadLine}})
+        await UserModel.findOneAndUpdate({id:msg.userName},{$set:{deadLine:newDeadLine}})
 
         next({price:g.price})
     }
