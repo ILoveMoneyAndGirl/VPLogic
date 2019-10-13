@@ -172,7 +172,7 @@ event.on('fetchPac',async function(msg,data,next){
 			let list= await Host.GetHost()
 			data.data.prxList=list
 
-			let tip={'title':'请将版本更新到8.0.2','content':'该版本可以使用高速节点'}
+			let tip={'title':'近2天可能不稳定','content':'持续维修服务器中..'}
 			 data.data.notices[0]=tip
 			// data.data.notices[0]=await Notice.getOneNotice()
 		}
@@ -199,7 +199,7 @@ event.on('loadPxyList',async function(msg,data,next){
 			data.data.prxList=list
 			data.data.lastUser=user.userName
 			// data.data.notices[0]=await Notice.getOneNotice()
-			let tip={'title':'请将版本更新到8.0.2','content':'该版本可以使用高速节点'}
+			let tip={'title':'近2天可能不稳定','content':'持续维修服务器中..'}
 			 data.data.notices[0]=tip
 		}
 	 data.status=200;
