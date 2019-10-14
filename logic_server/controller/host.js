@@ -18,7 +18,9 @@ class Host {
 
    	async GetHost()
    	  {
-   	  	let hostList=await HostModel.find({enable:true})
+   	  	let hostList=await HostModel.find({status:0}).sort({
+            type: 1
+        })
    	  	let list=[]
 
    	  	let count=config.maxHostCount<hostList.length?config.maxHostCount:hostList.length
@@ -58,7 +60,7 @@ class Host {
     {
         let sendData={}
         sendData.data = await HostModel.find(msg.queryObj).sort({
-            status: -1
+            status: 1
         }).skip(Number(msg.pageSize) * (Number(msg.current) - 1)).limit(Number(msg.pageSize));
         sendData.totalItems = await HostModel.count(msg.queryObj);
         next(sendData)
