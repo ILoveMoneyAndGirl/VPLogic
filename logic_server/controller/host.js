@@ -78,13 +78,15 @@ class Host {
 
         let info=JSON.parse(msg.info)
 
+
       for (var i = 0; i < info.length; i++) {
            console.log(info[i])
+
           let c= await HostModel.count({host:info[i].host})
           if(c>0)
           {
               console.log(info[i].host)
-              await HostModel.findOneAndUpdate({host:info[i].host},{$set:{port:info[i].port}})
+              await HostModel.findOneAndUpdate({host:info[i].host},{$set:{port:info[i].port,name:info[i].name}})
               console.log("Update Seccess")
           }else{
               console.log(info[i])
