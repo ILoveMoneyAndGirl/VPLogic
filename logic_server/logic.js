@@ -172,7 +172,7 @@ event.on('fetchPac',async function(msg,data,next){
 			let list= await Host.GetHost()
 			data.data.prxList=list
 
-			let tip={'title':'近2天可能不稳定','content':'持续维修服务器中..'}
+			let tip={'title':'已更新高速节点','content':'如有问题，像客户反馈'}
 			 data.data.notices[0]=tip
 			// data.data.notices[0]=await Notice.getOneNotice()
 		}
@@ -199,7 +199,7 @@ event.on('loadPxyList',async function(msg,data,next){
 			data.data.prxList=list
 			data.data.lastUser=user.userName
 			// data.data.notices[0]=await Notice.getOneNotice()
-			let tip={'title':'近2天可能不稳定','content':'持续维修服务器中..'}
+			let tip={'title':'已更新高速节点','content':'如有问题，像客户反馈'}
 			 data.data.notices[0]=tip
 		}
 	 data.status=200;
