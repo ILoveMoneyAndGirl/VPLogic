@@ -172,9 +172,9 @@ event.on('fetchPac',async function(msg,data,next){
 			let list= await Host.GetHost()
 			data.data.prxList=list
 
-			let tip={'title':'已更新高速节点','content':'如有问题，欢迎反馈'}
-			 data.data.notices[0]=tip
-			// data.data.notices[0]=await Notice.getOneNotice()
+			// let tip={'title':'已更新高速节点','content':'如有问题，欢迎反馈'}
+			//  data.data.notices[0]=tip
+			data.data.notices[0]=await Notice.getOneNotice()
 		}
 		data.status=200;
 	}
@@ -195,12 +195,12 @@ event.on('loadPxyList',async function(msg,data,next){
 		else{
 		
 			let list= await Host.GetHost()
-			console.log(list)
+			// console.log(list)
 			data.data.prxList=list
 			data.data.lastUser=user.userName
-			// data.data.notices[0]=await Notice.getOneNotice()
-			let tip={'title':'已更新高速节点','content':'如有问题，欢迎反馈'}
-			 data.data.notices[0]=tip
+			data.data.notices[0]=await Notice.getOneNotice()
+			// let tip={'title':'已更新高速节点','content':'如有问题，欢迎反馈'}
+			//  data.data.notices[0]=tip
 		}
 	 data.status=200;
 	}
@@ -364,6 +364,7 @@ event.on('GetGoods',Goods.getGoodsList);
 event.on('AddGoods',Goods.AddGoods); 
 event.on('UpdateGoods',Goods.UpdateGoods); 
 event.on('deleteGoods',Goods.deleteGoods); 
+
 
 
 event.on('GetNotice',Notice.getNoticeList); 
