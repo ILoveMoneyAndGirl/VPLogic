@@ -29,7 +29,7 @@ class Host {
    	  		let t={}
         //   let index=Common.GetRandomNum(0,hostList.length-1)
    	  		// let host=hostList[index]
-          host=hostList[i]
+         let  host=hostList[i]
           // hostList.splice(index,1)
    	  		t["address"]=host.name
    	  		t["id"]=host.id
