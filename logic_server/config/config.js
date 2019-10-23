@@ -1,5 +1,5 @@
 module.exports = {
-  maxHostCount:10,
+  maxHostCount:20,
   mallurl:"dddd",
   helpQQ:"请访问https://github.com/fishdivetechnology/StormVPN，该页面有联系QQ",
   helpEmail:"fishdivetechnology@gmail.com",
