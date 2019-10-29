@@ -87,7 +87,7 @@ class Host {
           if(c>0)
           {
               console.log(info[i].host)
-              await HostModel.findOneAndUpdate({host:info[i].host},{$set:{port:info[i].port,name:info[i].name}})
+              await HostModel.findOneAndUpdate({host:info[i].host},{$set:{port:info[i].port}})
               console.log("Update Seccess")
           }else{
               console.log(info[i])
