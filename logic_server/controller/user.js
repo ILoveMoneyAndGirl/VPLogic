@@ -158,7 +158,7 @@ class User {
         print("XXXXXXXX____>")
         let newDeadLine=new Date()
         newDeadLine.setDate(newDeadLine.getDate()+_config.tryDay);
-        await UserModel.findOneAndUpdate({userName:msg.email,code:msg.code},{$set:{enable:true,deadLine:newDeadLine}});
+        await UserModel.findOneAndUpdate({userName:msg.emall,code:msg.code},{$set:{enable:true,deadLine:newDeadLine}});
         next({msg:Tip.Active})
     }
 
@@ -180,7 +180,7 @@ class User {
                 }else{
                 var code=Common.GetRandomNum(100000,999999);
                 await UserModel.findOneAndUpdate({userName:msg.userEmail},{$set:{password:msg.password,activeCode:code}})
-                let content=Tip.activeUrl.replace("email%",msg.userEmail).replace("code%",code)
+                let content=Tip.activeUrl.replace("emall%",msg.userEmail).replace("code%",code)
                 Common.SedEamll(msg.userEmail,Tip.Welcome,content,content,_config.emall,_config.smtp,_config.password,async function(err,info){
                  if(err){
                         data.data=false;
@@ -188,7 +188,7 @@ class User {
                         data.status=500;
                         next(data)
                     }else{
-                         data.data=true
+                         data.data=false
                          data.msg=Tip.Register
                          data.status=200;
                           next(data)
