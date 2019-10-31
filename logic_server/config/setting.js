@@ -12,6 +12,7 @@ module.exports = {
   dbName:"WebBackUserDB",
   dbPassword:"WebBackUserDB_Root.c.c",
   dbUserName:"RootUser",
+  netIP:"172.105.116.57",
   
 }
 

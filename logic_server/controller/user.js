@@ -155,7 +155,7 @@ class User {
 
     async activeCount(msg,data,next){
 
-        print("XXXXXXXX____>")
+        console.log("XXXXXXXX____>")
         let newDeadLine=new Date()
         newDeadLine.setDate(newDeadLine.getDate()+_config.tryDay);
         await UserModel.findOneAndUpdate({userName:msg.emall,code:msg.code},{$set:{enable:true,deadLine:newDeadLine}});

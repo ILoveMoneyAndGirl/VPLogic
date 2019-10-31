@@ -14,8 +14,8 @@ module.exports = {
   emall:"fishdivetechnology@gmail.com",
   smtp:"smtp.gmail.com",
   password:"fishDiveyibo.c.c.c",
-  netIP:"172.105.116.57",
+  netIP:_setting.netIP,
   tryDay:10,
   commonUser:"test3@test.com",
-  ActiveUrl:"http://"+netIP+":"+_setting.webPort+"/?action=activeCount&emall=emall%&code=code%"
+  ActiveUrl:"http://"+_setting.netIP+":"+_setting.webPort+"/?action=activeCount&emall=emall%&code=code%"
 }
