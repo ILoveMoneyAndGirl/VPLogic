@@ -1,8 +1,12 @@
+let _config = require('./config');
+
 module.exports = {
   ServerError:'服务器异常',
   AccountExists:'账号已存在',
   PasswordDifferent:"两次密码不一致!",
   Success:"操作成功！",
+  Register:"操作成功，请前往邮箱激活账号！",
+  Active:"激活成功!",
   NoLogin:"未登录",
   LoginError:"账号或密码错误!",
   Error:"失败",
@@ -14,5 +18,6 @@ module.exports = {
   FindPassword:"找回密码",
   FindPasswordTxt:"新密码:e%",
   FindPasswordHtml:"<p>新密码:e%</p>",
-
+  Welcome:"欢迎注册StormVPN",
+  activeUrl:"点击<a href='"+_config.ActiveUrl+"'>这里</a>激活账号"
 }

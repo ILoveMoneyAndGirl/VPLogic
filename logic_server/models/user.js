@@ -21,6 +21,10 @@ var UserSchema = new Schema({
     deadLine: { type: Date, default: Date.now },
     enable: { type: Boolean, default: true },
     ip: String,
+    activeCode:{
+        type: Number,
+        'default': 0
+    },
 });
 
 var User = mongoose.model("HUser", UserSchema);

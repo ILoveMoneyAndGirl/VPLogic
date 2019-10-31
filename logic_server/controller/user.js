@@ -153,6 +153,14 @@ class User {
 
 
 
+    async activeCount(msg,data,next){
+
+        let newDeadLine=new Date()
+        newDeadLine.setDate(newDeadLine.getDate()+_config.tryDay);
+        await UserModel.findOneAndUpdate({userName:msg.email,code:msg.code},{$set:{enable:true,deadLine:newDeadLine}});
+        next({msg:Tip.Active})
+    }
+    
     async register(msg,data,next) 
     {
         if(msg.password==msg.rePassword)
@@ -165,22 +173,32 @@ class User {
                 data.data=false;
                 data.msg=Tip.AccountExists;
                 data.status=500;
+                next(data)
 
             }else{
-                const c=await   UserModel.count({ip:msg.ip});
-                let newDeadLine=new Date()
+                var code=Common.GetRandomNum(100000,999999);
 
-                  if(c<1){
-                      newDeadLine.setDate(newDeadLine.getDate()+_config.tryDay);
-                  }
-
-                     const user = new UserModel({userName:msg.userEmail,password:msg.password,ip:msg.ip,deadLine:newDeadLine})
-                     await user.save();
-                     data.data=true
-                     data.msg=Tip.Success
-                     data.status=200;
+                 const user = new UserModel({userName:msg.userEmail,password:msg.password,ip:msg.ip,deadLine:newDeadLine,activeCode:code})
+                 await user.save();
+                Common.SedEamll(msg.userEmail,Tip.Welcome,Tip.activeUrl.replace("email%",msg.userEmail),Tip.FindPasswordHtml.replace("code%",code),_config.emall,_config.smtp,_config.password,async function(err,info){
+                 if(err){
+                        data.data=false;
+                        data.msg=Tip.SendEmailError;
+                        data.status=500;
+                        next(data)
+                    }else{
+                         data.data=true
+                         data.msg=Tip.Register
+                         data.status=200;
+                          next(data)
+                      }
+                }); 
             }
-            next(data)
+         }else{
+                data.data=false;
+                data.msg=Tip.PasswordDifferent;
+                data.status=500;
+                next(data)
          }
     }
 
@@ -209,14 +227,64 @@ class User {
         next(data)
     }
 
+
+//     function login(d,response,callback){
+//     var data=JSON.parse(JSON.stringify(responseData));
+//     if(d.hasOwnProperty("disptch")){
+//         data.disptch=d.disptch;
+//     }
+//     data_del.verifyUserNameAndPassword(d.userEmail,d.password,function(err,res,filed){
+//         if(err){
+//             data.data= false;
+//             data.status=500;
+//             data.msg="数据查询异常！"
+//             callback(data,response);
+//         }else if (res.length!=1){
+//             data.data= false;
+//             data.status=0;
+//             data.msg="账号或者密码错误！"
+//             callback(data,response);
+//         }
+//         else{
+//             var _data=JSON.parse(JSON.stringify(RD_data));
+//             data_del.updateCookie(d.userEmail,function(err,res){
+//                 if(err){
+//                     data.data= false;
+//                     data.status=500;
+//                     data.msg="数据生成异常！"
+//                 }else{
+//                     _data.cookie=res
+//                     _data.userEmail=d.userEmail;
+//                     data.data=_data;
+//                     data.status=200;
+//                     data_del.getInvationCode(d.userEmail,function(err,res){
+//                     _data.invationCode=res
+//                     if(err){
+//                             _data.invationCode="NULL"
+//                     }
+//                     data_del.getKey(d.userEmail,function(err,res){
+//                         _data.key=res
+
+//                         callback(data,response);
+//                     });
+//                     });
+//                 }
+//             })
+
+//         }
+//     });
+// }
+
+
+
     async login(msg,data,next) 
     {
         let cookie=Common.Getuuid();
         const r=await UserModel.findOneAndUpdate({userName:msg.userEmail,password:msg.password}, { $set:{cookie:cookie}});
         if(r){
-            let content={}
             data.data.cookie=cookie
             data.data.key=cookie
+            data.data.invationCode="NULL"
             data.data.userEmail=r.userName
             data.status=200;
 

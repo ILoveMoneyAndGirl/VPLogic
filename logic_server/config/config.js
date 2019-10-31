@@ -14,5 +14,6 @@ module.exports = {
   password:"fishDiveyibo.c.c.c",
   netIP:"172.105.116.57",
   tryDay:10,
-  commonUser:"test3@test.com"
+  commonUser:"test3@test.com",
+  ActiveUrl:"http://172.105.116.57/?action=activeCount&emall=emall%&code=code%"
 }

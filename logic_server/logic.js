@@ -110,6 +110,8 @@ event.on('checkRegister',User.checkRegister);
 event.on('resetPassword',User.resetPassword);
 event.on('findPassword',User.findPassword);
 event.on('getUserInfo',User.getUserInfo);
+event.on('activeCount',User.activeCount);
+
 
 event.on('login',User.login); 
 //--------------WebSocket-----------------
