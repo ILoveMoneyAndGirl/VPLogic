@@ -6,7 +6,7 @@ module.exports = {
   PasswordDifferent:"两次密码不一致!",
   Success:"操作成功！",
   Register:"操作成功，请前往邮箱激活账号！",
-  Active:"激活成功!",
+  Active:"Success!",
   NoLogin:"未登录",
   LoginError:"账号或密码错误!",
   Error:"失败",

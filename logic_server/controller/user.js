@@ -158,8 +158,10 @@ class User {
         console.log("XXXXXXXX____>")
         let newDeadLine=new Date()
         newDeadLine.setDate(newDeadLine.getDate()+_config.tryDay);
-        await UserModel.findOneAndUpdate({userName:msg.emall,code:msg.code},{$set:{enable:true,deadLine:newDeadLine}});
-        next({msg:Tip.Active})
+       let a =await UserModel.findOneAndUpdate({userName:msg.emall,code:msg.code},{$set:{enable:true,deadLine:newDeadLine}});
+       
+       if(a) next({msg:Tip.Active})
+        else next({msg:"failed!"})
     }
 
     async register(msg,data,next) 
