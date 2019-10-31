@@ -199,6 +199,8 @@ event.on('loadPxyList',async function(msg,data,next){
 			let list= await Host.GetHost()
 			// console.log(list)
 			data.data.prxList=list
+			let url=await URLList.getURLByUser(user.userName)
+			data.data.urlList=url
 			data.data.lastUser=user.userName
 			data.data.notices[0]=await Notice.getOneNotice()
 			// let tip={'title':'已更新高速节点','content':'如有问题，欢迎反馈'}
