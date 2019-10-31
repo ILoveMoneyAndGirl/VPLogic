@@ -160,7 +160,7 @@ class User {
         await UserModel.findOneAndUpdate({userName:msg.email,code:msg.code},{$set:{enable:true,deadLine:newDeadLine}});
         next({msg:Tip.Active})
     }
-    
+
     async register(msg,data,next) 
     {
         if(msg.password==msg.rePassword)
@@ -204,7 +204,7 @@ class User {
 
    async checkRegister(msg,data,next)
     {
-        const r=await UserModel.findOne({userName:msg.userEmail});
+        const r=await UserModel.findOne({userName:msg.userEmail,enable:true});
         if(r)
         {
             data.data=true;
@@ -280,7 +280,7 @@ class User {
     async login(msg,data,next) 
     {
         let cookie=Common.Getuuid();
-        const r=await UserModel.findOneAndUpdate({userName:msg.userEmail,password:msg.password}, { $set:{cookie:cookie}});
+        const r=await UserModel.findOneAndUpdate({userName:msg.userEmail,password:msg.password,enable:true}, { $set:{cookie:cookie}});
         if(r){
             data.data.cookie=cookie
             data.data.key=cookie

@@ -19,7 +19,7 @@ var UserSchema = new Schema({
     cookie: String,
     bornDate: { type: Date, default: Date.now },
     deadLine: { type: Date, default: Date.now },
-    enable: { type: Boolean, default: true },
+    enable: { type: Boolean, default: false },
     ip: String,
     activeCode:{
         type: Number,
