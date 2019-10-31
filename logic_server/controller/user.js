@@ -155,6 +155,7 @@ class User {
 
     async activeCount(msg,data,next){
 
+        print("XXXXXXXX____>")
         let newDeadLine=new Date()
         newDeadLine.setDate(newDeadLine.getDate()+_config.tryDay);
         await UserModel.findOneAndUpdate({userName:msg.email,code:msg.code},{$set:{enable:true,deadLine:newDeadLine}});
@@ -178,7 +179,7 @@ class User {
             }else{
                 var code=Common.GetRandomNum(100000,999999);
 
-                 const user = new UserModel({userName:msg.userEmail,password:msg.password,ip:msg.ip,deadLine:newDeadLine,activeCode:code})
+                 const user = new UserModel({userName:msg.userEmail,password:msg.password,activeCode:code})
                  await user.save();
                 Common.SedEamll(msg.userEmail,Tip.Welcome,Tip.activeUrl.replace("email%",msg.userEmail),Tip.FindPasswordHtml.replace("code%",code),_config.emall,_config.smtp,_config.password,async function(err,info){
                  if(err){
