@@ -156,9 +156,10 @@ class User {
     async activeCount(msg,data,next){
 
         console.log("XXXXXXXX____>")
+        console.log(msg)
         let newDeadLine=new Date()
         newDeadLine.setDate(newDeadLine.getDate()+_config.tryDay);
-       let a =await UserModel.findOneAndUpdate({userName:msg.emall,code:msg.code},{$set:{enable:true,deadLine:newDeadLine}});
+       let a =await UserModel.findOneAndUpdate({userName:msg.emall,activeCode:msg.code,enable:false},{$set:{enable:true,deadLine:newDeadLine}});
        
        if(a) next({msg:Tip.Active})
         else next({msg:"failed!"})
