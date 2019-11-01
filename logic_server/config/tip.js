@@ -6,6 +6,8 @@ module.exports = {
   PasswordDifferent:"两次密码不一致!",
   Success:"操作成功！",
   Register:"操作成功，请前往邮箱激活账号！",
+  Register1:"请前往邮箱激活账号，注册邮箱为非常规邮箱，无法获取时间奖励，以下是常规邮箱后缀：",
+
   Active:"Success!",
   NoLogin:"未登录",
   LoginError:"账号或密码错误!",

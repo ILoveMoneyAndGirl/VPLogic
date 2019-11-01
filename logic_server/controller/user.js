@@ -8,6 +8,7 @@ let _setting = require('../config/setting');
 let _config = require('../config/config');
 var uuid = require('node-uuid');
 
+let emallAddress="@qq.com@vip.qq.com@gmail.com@outlook.com@163.com@sina.com@foxmail.com@sogou.com@sohu.com@aliyun.com@yahoo.com@yahoo.com.cn@hotmail.com@msn.com@21cn.com@seu.edu.cn@51yunqipei.com@aim.com@aol.com@mail.com@walla.com@inbox.com@126.com@tom.com@etang.com@eyou.com@56.com@x.cn@chinaren.com@citiz.com@wo.cn"
 
 class User {
     constructor() {
@@ -153,8 +154,17 @@ class User {
 
     async activeCount(msg,data,next){
 
+        let add= emallAddress.split("@")
+        let madd= msg.userEmail.split("@")[1]
         let newDeadLine=new Date()
-        newDeadLine.setDate(newDeadLine.getDate()+_config.tryDay);
+
+        for (var i = 0; i < add.length; i++) {
+             if(add[i]==madd)
+             {
+                newDeadLine.setDate(newDeadLine.getDate()+_config.tryDay);
+                 break;
+             }
+         }
        let a =await UserModel.findOneAndUpdate({userName:msg.emall,activeCode:msg.code,enable:false},{$set:{enable:true,deadLine:newDeadLine}});
        
        if(a) next({msg:Tip.Active})
@@ -187,6 +197,24 @@ class User {
                         data.status=500;
                         next(data)
                     }else{
+
+                         let add= emallAddress.split("@")
+                         let madd= msg.userEmail.split("@")[1]
+
+                         console.log("////////------>")
+                         console.log(madd)
+                          console.log(add)
+
+                         data.msg=Tip.Register1+emallAddress
+
+                         for (var i = 0; i < add.length; i++) {
+                             if(add[i]==madd)
+                             {
+                                 data.msg=Tip.Register
+                                 break;
+                             }
+                         }
+
                          data.data=false
                          data.msg=Tip.Register
                          data.status=200;
@@ -209,6 +237,26 @@ class User {
                         data.status=500;
                         next(data)
                     }else{
+
+                                                 let add= emallAddress.split("@")
+                         let madd= msg.userEmail.split("@")[1]
+
+                         console.log("////////------>")
+                         console.log(madd)
+                          console.log(add)
+
+                         data.msg=Tip.Register1+emallAddress
+
+                         for (var i = 0; i < add.length; i++) {
+                             if(add[i]==madd)
+                             {
+                                 data.msg=Tip.Register
+                                 break;
+                             }
+                         }
+
+
+
                          data.data=false
                          data.msg=Tip.Register
                          data.status=200;
