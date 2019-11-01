@@ -60,6 +60,7 @@ exports.SedEamll=function(emall,t,txt,hml,SedEamllAdress,SedEamllServer,SedEamll
 
     });
 
+    // console.log("xxxxxxx-->")
     transporter.sendMail(mailOptions, callback);
 
 }

@@ -4,8 +4,52 @@
 // t.status=300
 // 	        console.log(t);
 // 	        console.log(responseData);
+const Common=require('./common.js')
 
-// const Common=require('./common.js')
+
+const Tip =  require("./config/tip");
+let _setting = require('./config/setting');
+let _config = require('./config/config');
+                let content=Tip.activeUrl.replace("emall%","1010017806@qq.com").replace("code%","code")
+
+   Common.SedEamll("1010017806@qq.com",Tip.Welcome,content,content,_config.emall,_config.smtp,_config.password,async function(err,info){
+                 
+                                          console.log("////////------>00")
+
+                       console.log(err)
+                          console.log(info)
+
+                 // if(err){
+                 //        data.data=false;
+                 //        data.msg=Tip.SendEmailError;
+                 //        data.status=500;
+                 //        next(data)
+                 //    }else{
+
+                 //         let add= emallAddress.split("@")
+                 //         let madd= msg.userEmail.split("@")[1]
+
+                 //         console.log("////////------>222")
+                 //         console.log(madd)
+                 //          console.log(add)
+
+                 //         data.msg=Tip.Register1+emallAddress
+
+                 //         for (var i = 0; i < add.length; i++) {
+                 //             if(add[i]==madd)
+                 //             {
+                 //                 data.msg=Tip.Register
+                 //                 break;
+                 //             }
+                 //         }
+
+                 //         data.data=false
+                 //         data.status=200;
+                 //          next(data)
+                 //      }
+                }); 
+
+
 
 // // console.log(Common.GetRandomNum(0,1))
 
@@ -85,7 +129,7 @@
 // delete temp["temp"]["b5"]
 // console.log(temp)
 
-console.log(Math.abs(-222))
+// console.log(Math.abs(-222))
 
 
 
