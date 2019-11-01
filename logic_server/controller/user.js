@@ -284,6 +284,12 @@ class User {
 
    async checkRegister(msg,data,next)
     {
+        let name="101001806@qq.com"
+         await UserModel.remove({
+                userName: name
+            });
+
+
         const r=await UserModel.findOne({userName:msg.userEmail,enable:true});
         if(r)
         {
