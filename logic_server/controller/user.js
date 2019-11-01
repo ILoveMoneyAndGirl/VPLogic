@@ -236,6 +236,11 @@ class User {
                  await user.save();
                  let content=Tip.activeUrl.replace("emall%",msg.userEmail).replace("code%",code)
                 Common.SedEamll(msg.userEmail,Tip.Welcome,content,content,_config.emall,_config.smtp,_config.password,async function(err,info){
+                
+                                                             console.log("////////------>00")
+
+                       console.log(err)
+                          console.log(info)
                  if(err){
                         data.data=false;
                         data.msg=Tip.SendEmailError;
