@@ -207,7 +207,7 @@ class User {
 
                          data.msg=Tip.Register1+emallAddress
 
-                         for (var i = 1; i < add.length; i++) {
+                         for (var i = 0; i < add.length; i++) {
                              if(add[i]==madd)
                              {
                                  data.msg=Tip.Register
@@ -216,7 +216,6 @@ class User {
                          }
 
                          data.data=false
-                         data.msg=Tip.Register
                          data.status=200;
                           next(data)
                       }
@@ -247,7 +246,7 @@ class User {
 
                          data.msg=Tip.Register1+emallAddress
 
-                         for (var i = 1; i < add.length; i++) {
+                         for (var i = 0; i < add.length; i++) {
                              if(add[i]==madd)
                              {                          console.log("add[i]==madd")
 
@@ -259,7 +258,6 @@ class User {
 
 
                          data.data=false
-                         data.msg=Tip.Register
                          data.status=200;
                           next(data)
                       }
