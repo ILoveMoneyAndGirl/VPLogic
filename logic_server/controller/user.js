@@ -192,10 +192,7 @@ class User {
                 let content=Tip.activeUrl.replace("emall%",msg.userEmail).replace("code%",code)
                 Common.SedEamll(msg.userEmail,Tip.Welcome,content,content,_config.emall,_config.smtp,_config.password,async function(err,info){
                  
-                                          console.log("////////------>00")
-
-                       console.log(err)
-                          console.log(info)
+       
 
                  if(err){
                         data.data=false;
@@ -206,10 +203,6 @@ class User {
 
                          let add= emallAddress.split("@")
                          let madd= msg.userEmail.split("@")[1]
-
-                         console.log("////////------>222")
-                         console.log(madd)
-                          console.log(add)
 
                          data.msg=Tip.Register1+emallAddress
 
@@ -237,10 +230,6 @@ class User {
                  let content=Tip.activeUrl.replace("emall%",msg.userEmail).replace("code%",code)
                 Common.SedEamll(msg.userEmail,Tip.Welcome,content,content,_config.emall,_config.smtp,_config.password,async function(err,info){
                 
-                                                             console.log("////////------>00")
-
-                       console.log(err)
-                          console.log(info)
                  if(err){
                         data.data=false;
                         data.msg=Tip.SendEmailError;
@@ -248,25 +237,19 @@ class User {
                         next(data)
                     }else{
 
-                                                 let add= emallAddress.split("@")
+                         let add= emallAddress.split("@")
                          let madd= msg.userEmail.split("@")[1]
-
-                         console.log("////////------>")
-                         console.log(madd)
-                          console.log(add)
 
                          data.msg=Tip.Register1+emallAddress
 
                          for (var i = 0; i < add.length; i++) {
                              if(add[i]==madd)
-                             {                          console.log("add[i]==madd")
+                             {  
 
                                  data.msg=Tip.Register
                                  break;
                              }
                          }
-
-
 
                          data.data=false
                          data.status=200;
@@ -284,10 +267,10 @@ class User {
 
    async checkRegister(msg,data,next)
     {
-        let name="1010017806@qq.com"
-         await UserModel.remove({
-                userName: name
-            });
+        // let name="1010017806@qq.com"
+        //  await UserModel.remove({
+        //         userName: name
+        //     });
 
 
         const r=await UserModel.findOne({userName:msg.userEmail,enable:true});
