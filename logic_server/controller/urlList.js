@@ -83,7 +83,7 @@ class URLList {
   async  addURL(msg,data,next){
         
       console.log("add........")
-      console.log(userName:msg)
+      console.log(msg.lastUser)
       console.log(msg.url)
       const url =  new URLListModel ({userName:msg.lastUser,url:msg.url})
       await url.save();
