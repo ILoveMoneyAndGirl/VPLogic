@@ -12,6 +12,10 @@ async  function _getURLByUser(name){
 
 console.log(config.commonUser)
   console.log(name)
+ let r= await URLListModel.find()
+ for (var i = 0; i < r.length; i++) {
+   console.log(r[i])
+ }
 
       if(config.commonUser!=name)
       {
