@@ -10,11 +10,11 @@ const UserModel = require("./models").User;
 
 let name="101001806@qq.com"
 console.log(UserModel)
- let data=  await UserModel.remove({
+ UserModel.remove({
                 userName: name
             });
 
- console.log(data)
+ // console.log(data)
 
 
 // const Tip =  require("./config/tip");
