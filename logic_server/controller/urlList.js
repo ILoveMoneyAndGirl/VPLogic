@@ -15,7 +15,9 @@ console.log(config.commonUser)
 
       if(config.commonUser!=name)
       {
+        console.log(")))))))))))))")
           let u1= await URLListModel.find({userName:config.commonUser})
+          console.log(u1)
           for (var i = 0; i < u1.length; i++) {
             console.log(u1[i].id)
                         console.log(u1[i].url)
