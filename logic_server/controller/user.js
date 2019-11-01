@@ -201,7 +201,7 @@ class User {
 
                  const user = new UserModel({userName:msg.userEmail,password:msg.password,activeCode:code})
                  await user.save();
-                 let content=Tip.activeUrl.replace("email%",msg.userEmail).replace("code%",code)
+                 let content=Tip.activeUrl.replace("emall%",msg.userEmail).replace("code%",code)
                 Common.SedEamll(msg.userEmail,Tip.Welcome,content,content,_config.emall,_config.smtp,_config.password,async function(err,info){
                  if(err){
                         data.data=false;
