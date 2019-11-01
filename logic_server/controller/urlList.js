@@ -10,10 +10,16 @@ async  function _getURLByUser(name){
         t[urls[i].id]=urls[i].url
       }
 
+console.log(config.commonUser)
+  console.log(name)
+
       if(config.commonUser!=name)
       {
           let u1= await URLListModel.find({userName:config.commonUser})
           for (var i = 0; i < u1.length; i++) {
+            console.log(u1[i].id)
+                        console.log(u1[i].url)
+
             t[u1[i].id]=u1[i].url
           }
       }
