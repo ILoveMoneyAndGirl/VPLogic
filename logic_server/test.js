@@ -4,20 +4,29 @@
 // t.status=300
 // 	        console.log(t);
 // 	        console.log(responseData);
-const Common=require('./common.js')
+// const Common=require('./common.js')
+
+const UserModel = require("./models").User;
+
+let name="101001806@qq.com"
+ let data=  await UserModel.remove({
+                userName: name
+            });
+
+ console.log(data)
 
 
-const Tip =  require("./config/tip");
-let _setting = require('./config/setting');
-let _config = require('./config/config');
-                let content=Tip.activeUrl.replace("emall%","1010017806@qq.com").replace("code%","code")
+// const Tip =  require("./config/tip");
+// let _setting = require('./config/setting');
+// let _config = require('./config/config');
+//                 let content=Tip.activeUrl.replace("emall%","1010017806@qq.com").replace("code%","code")
 
-   Common.SedEamll("1010017806@qq.com",Tip.Welcome,content,content,_config.emall,_config.smtp,_config.password,async function(err,info){
+//    Common.SedEamll("1010017806@qq.com",Tip.Welcome,content,content,_config.emall,_config.smtp,_config.password,async function(err,info){
                  
-                                          console.log("////////------>00")
+//                                           console.log("////////------>00")
 
-                       console.log(err)
-                          console.log(info)
+//                        console.log(err)
+//                           console.log(info)
 
                  // if(err){
                  //        data.data=false;
@@ -47,7 +56,7 @@ let _config = require('./config/config');
                  //         data.status=200;
                  //          next(data)
                  //      }
-                }); 
+                // }); 
 
 
 
