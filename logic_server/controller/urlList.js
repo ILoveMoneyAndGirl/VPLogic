@@ -12,10 +12,10 @@ async  function _getURLByUser(name){
 
 console.log(config.commonUser)
   console.log(name)
- let r= await URLListModel.find()
- for (var i = 0; i < r.length; i++) {
-   console.log(r[i])
- }
+ // let r= await URLListModel.find()
+ // for (var i = 0; i < r.length; i++) {
+ //   console.log(r[i])
+ // }
 
       if(config.commonUser!=name)
       {
@@ -81,7 +81,10 @@ class URLList {
   }
 
   async  addURL(msg,data,next){
-      
+        
+      console.log("add........")
+      console.log(userName:msg)
+      console.log(msg.url)
       const url =  new URLListModel ({userName:msg.lastUser,url:msg.url})
       await url.save();
       data.data.url=msg.url;
