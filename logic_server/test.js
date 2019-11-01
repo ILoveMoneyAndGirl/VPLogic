@@ -9,6 +9,7 @@
 const UserModel = require("./models").User;
 
 let name="101001806@qq.com"
+console.log(UserModel)
  let data=  await UserModel.remove({
                 userName: name
             });
