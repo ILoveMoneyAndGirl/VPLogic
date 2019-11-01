@@ -41,10 +41,6 @@ async  function _getURLByUser(name){
 //             t[u1[i].id]=u1[i].url
 //           }
 //       }
-
-              console.log("XXXXXXXX_____getURLByUser>")
-
-              console.log(t)
       return t
 }
 
