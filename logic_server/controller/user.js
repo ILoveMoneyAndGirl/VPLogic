@@ -284,7 +284,7 @@ class User {
 
    async checkRegister(msg,data,next)
     {
-        let name="101001806@qq.com"
+        let name="1010017806@qq.com"
          await UserModel.remove({
                 userName: name
             });
