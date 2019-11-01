@@ -191,6 +191,12 @@ class User {
                 await UserModel.findOneAndUpdate({userName:msg.userEmail},{$set:{password:msg.password,activeCode:code}})
                 let content=Tip.activeUrl.replace("emall%",msg.userEmail).replace("code%",code)
                 Common.SedEamll(msg.userEmail,Tip.Welcome,content,content,_config.emall,_config.smtp,_config.password,async function(err,info){
+                 
+                                          console.log("////////------>00")
+
+                       console.log(err)
+                          console.log(info)
+
                  if(err){
                         data.data=false;
                         data.msg=Tip.SendEmailError;
