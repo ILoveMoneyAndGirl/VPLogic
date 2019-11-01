@@ -155,7 +155,7 @@ class User {
     async activeCount(msg,data,next){
 
         let add= emallAddress.split("@")
-        let madd= msg.userEmail.split("@")[1]
+        let madd= msg.emall.split("@")[1]
         let newDeadLine=new Date()
 
         for (var i = 0; i < add.length; i++) {
