@@ -207,7 +207,7 @@ class User {
                          let add= emallAddress.split("@")
                          let madd= msg.userEmail.split("@")[1]
 
-                         console.log("////////------>")
+                         console.log("////////------>222")
                          console.log(madd)
                           console.log(add)
 
