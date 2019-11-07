@@ -7,6 +7,7 @@ const Tip =  require("../config/tip");
 let _setting = require('../config/setting');
 let _config = require('../config/config');
 var uuid = require('node-uuid');
+var urlencode = require('urlencode');
 
 let emallAddress="@qq.com@vip.qq.com@gmail.com@outlook.com@163.com@sina.com@foxmail.com@sogou.com@sohu.com@aliyun.com@yahoo.com@yahoo.com.cn@hotmail.com@msn.com@21cn.com@seu.edu.cn@51yunqipei.com@aim.com@aol.com@mail.com@walla.com@inbox.com@126.com@tom.com@etang.com@eyou.com@56.com@x.cn@chinaren.com@citiz.com@wo.cn"
 
@@ -192,7 +193,7 @@ class User {
                 if(r.activeCode==0)
                   code=Common.GetRandomNum(100000,999999);
                 await UserModel.findOneAndUpdate({userName:msg.userEmail},{$set:{password:msg.password,activeCode:code}})
-                let content=Tip.activeUrl.replace("emall%",msg.userEmail).replace("code%",code)
+                let content=Tip.activeUrl.replace("emall%",urlencode(msg.userEmail)).replace("code%",code)
                 Common.SedEamll(msg.userEmail,Tip.Welcome,content,content,_config.emall,_config.smtp,_config.password,async function(err,info){
                  
        

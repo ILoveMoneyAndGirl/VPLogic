@@ -6,16 +6,19 @@
 // 	        console.log(responseData);
 // const Common=require('./common.js')
 
-const UserModel = require("./models").User;
+// const UserModel = require("./models").User;
 
-let name="101001806@qq.com"
-console.log(UserModel)
- UserModel.remove({
-                userName: name
-            });
+// let name="101001806@qq.com"
+// console.log(UserModel)
+//  UserModel.remove({
+//                 userName: name
+//             });
 
  // console.log(data)
 
+
+
+console.log(urlencode('doriedk4512+0@gmail.com'))
 
 // const Tip =  require("./config/tip");
 // let _setting = require('./config/setting');
