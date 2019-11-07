@@ -165,6 +165,7 @@ class User {
                  break;
              }
          }
+         console.log(msg)
        let a =await UserModel.findOneAndUpdate({userName:msg.emall,activeCode:msg.code,enable:false},{$set:{enable:true,deadLine:newDeadLine}});
        
        if(a) next({msg:Tip.Active})
