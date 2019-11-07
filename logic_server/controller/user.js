@@ -9,7 +9,7 @@ let _config = require('../config/config');
 var uuid = require('node-uuid');
 var urlencode = require('urlencode');
 
-let emallAddress="@qq.com@vip.qq.com@gmail.com@outlook.com@163.com@sina.com@foxmail.com@sogou.com@sohu.com@aliyun.com@yahoo.com@yahoo.com.cn@hotmail.com@msn.com@21cn.com@seu.edu.cn@51yunqipei.com@aim.com@aol.com@mail.com@walla.com@inbox.com@126.com@tom.com@etang.com@eyou.com@56.com@x.cn@chinaren.com@citiz.com@wo.cn"
+let emallAddress="@qq.com@vip.qq.com@gmail.com@outlook.com@163.com@sina.com@foxmail.com@sogou.com@sohu.com@aliyun.com@yahoo.com@yahoo.com.cn@yeah.net@hotmail.com@msn.com@21cn.com@seu.edu.cn@51yunqipei.com@aim.com@aol.com@mail.com@walla.com@inbox.com@126.com@tom.com@etang.com@eyou.com@56.com@x.cn@chinaren.com@citiz.com@wo.cn"
 
 class User {
     constructor() {
