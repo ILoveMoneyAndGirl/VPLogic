@@ -187,7 +187,9 @@ class User {
                     data.status=500;
                     next(data)
                 }else{
-                var code=Common.GetRandomNum(100000,999999);
+                  var code=r.activeCode
+                if(r.activeCode==0)
+                  code=Common.GetRandomNum(100000,999999);
                 await UserModel.findOneAndUpdate({userName:msg.userEmail},{$set:{password:msg.password,activeCode:code}})
                 let content=Tip.activeUrl.replace("emall%",msg.userEmail).replace("code%",code)
                 Common.SedEamll(msg.userEmail,Tip.Welcome,content,content,_config.emall,_config.smtp,_config.password,async function(err,info){
