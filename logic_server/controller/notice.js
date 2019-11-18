@@ -13,6 +13,10 @@ class Notice {
         let tip = await NoticesModel.find()
         data.data["tip"]=tip
         data.status=200;
+
+        console.log("_____________>LoadTip.....");
+        console.log(tip);
+        console.log(data);
         next(data)
       
   }

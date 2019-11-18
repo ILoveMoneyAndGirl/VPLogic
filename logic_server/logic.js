@@ -118,13 +118,11 @@ event.on('login',User.login);
 event.on('loadGoods',Goods.getGoodsAll); 
 event.on('LoadTip',Notice.LoadTip); 
 
-
-
 event.on('checkLogin',User.checkLogin); 
 event.on('addTime',User.addTime); 
 event.on('userInfo',User.userInfo); 
 event.on('getInfo',function(msg,data,next){
-	console.log("_____________>start.....");
+	
    var host=[config.netIP+":"+settings.webPort,config.netIP+":"+settings.socketPort]
    next(host)
 }); 
