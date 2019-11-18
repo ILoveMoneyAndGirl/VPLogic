@@ -116,6 +116,10 @@ event.on('activeCount',User.activeCount);
 event.on('login',User.login); 
 //--------------WebSocket-----------------
 event.on('loadGoods',Goods.getGoodsAll); 
+event.on('LoadTip',Notice.LoadTip); 
+
+
+
 event.on('checkLogin',User.checkLogin); 
 event.on('addTime',User.addTime); 
 event.on('userInfo',User.userInfo); 
@@ -184,6 +188,7 @@ event.on('fetchPac',async function(msg,data,next){
 	next(data)
 
 }); 
+
 
 
 

@@ -7,6 +7,16 @@ class Notice {
         // super()
     }
 
+    async LoadTip(msg,data,next)
+    {
+
+        let tip = await NoticesModel.find(isShow:true)
+        data.data["tip"]=tip
+        data.status=200;
+        next(data)
+      
+  }
+
     async  getOneNotice(name){
 
    		return await NoticesModel.findOne({enable:true})

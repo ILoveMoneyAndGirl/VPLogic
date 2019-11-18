@@ -12,6 +12,7 @@ var NoticesSchema = new Schema({
     title: String,
     content: String,
     enable: { type: Boolean, default: true },
+    isShow: { type: Boolean, default: true },
 });
 
 var NoticesSchema = mongoose.model("notices", NoticesSchema);
