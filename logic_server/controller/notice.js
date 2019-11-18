@@ -10,7 +10,7 @@ class Notice {
     async LoadTip(msg,data,next)
     {
 
-        let tip = await NoticesModel.find(isShow:true)
+        let tip = await NoticesModel.find()
         data.data["tip"]=tip
         data.status=200;
         next(data)
