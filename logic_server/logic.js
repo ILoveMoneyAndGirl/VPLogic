@@ -117,6 +117,8 @@ event.on('login',User.login);
 //--------------WebSocket-----------------
 event.on('loadGoods',Goods.getGoodsAll); 
 event.on('LoadTip',Notice.LoadTip); 
+event.on('LoadTips',Notice.LoadTips); 
+
 
 event.on('checkLogin',User.checkLogin); 
 event.on('addTime',User.addTime); 

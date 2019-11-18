@@ -21,6 +21,20 @@ class Notice {
       
   }
 
+    async LoadTips(msg,data,next)
+    {
+
+        let tip = await NoticesModel.find()
+        data.data["tip"]=tip
+        data.status=200;
+
+        console.log("_____________>LoadTips.....");
+        console.log(tip);
+        console.log(data);
+        next(data)
+      
+  }
+
     async  getOneNotice(name){
 
    		return await NoticesModel.findOne({enable:true})
